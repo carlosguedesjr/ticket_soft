@@ -1,0 +1,14 @@
+<section class="container">
+    <section class="menu">
+        <ul #nav>
+            <ng-template ngFor let-item [ngForOf]="menu">
+                <li [routerLink]="item.link" (click)="activeRoute($event)">
+                    <mat-icon>{{ item.icon }}</mat-icon>{{ item.text }}
+                </li>
+            </ng-template>
+        </ul>
+    </section>
+    <section class="content">
+        <router-outlet></router-outlet>
+    </section>
+</section>

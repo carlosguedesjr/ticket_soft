@@ -1,0 +1,76 @@
+<section class="login-page">
+    <div class="login-page__container">
+        <div class="login-page__container--inner">
+            <div class="login-page__container--superinner">
+                <div class="login-page__header">
+                    <img class="login-page--logo" src="https://upload.wikimedia.org/wikipedia/pt/6/67/EPTV.png" alt="" [@hideLogo]='state'>
+                    <h2>{{ 'LOGIN.PARTICIPANTS-LOGIN' | translate }}</h2>
+                </div>
+                <div class="login-page__inputs">
+                    <!-- Seção de Mensagem de Confirmação após enviar e-mail de recuperação de senha -->
+                    <section class="confirm-reset__container" [ngClass]="{'active': recoverPasswordWindow}">
+                        <div class="confirm-reset__innercontainer">
+                            <span class="confirm-reset__message">
+                               {{ 'LOGIN.INSTRUCTIONS' | translate }}
+                            </span>
+                        </div>
+                    </section>
+
+                    <!-- Seção de recuperação de senha -->
+                    <section class="password__container" [@passwordRecovery]='state'>
+                        <div class="password__inner">
+                            <mat-icon class="arrowBack-icon bounce" (click)="toggleState()" matPrefix>arrow_back</mat-icon>
+                            <span class="password__span">{{ 'LOGIN.RECOVER-INSTRUCTIONS' | translate }}</span>
+
+                            <form [formGroup]="recoveryPasswordForm" (ngSubmit)="passwordRecovery(recoveryPasswordForm)">
+                                <mat-form-field class="login-page--recovery-password">
+                                    <input matInput placeholder="{{ 'LOGIN.DOCUMENT-EMAIL' | translate }}" formControlName="emailRecovery">
+                                    <mat-icon matPrefix>mail_outline</mat-icon>
+                                    <mat-error>{{ 'LOGIN.MAIL-AND-CPF-ERROR' | translate }}</mat-error>
+                                    <mat-hint class="errorCard" *ngIf="emailError">{{ emailError }}</mat-hint>
+                                    <mat-hint class="errorCard" *ngIf="errorGettingEmail">{{ errorRequestResetPass }}</mat-hint>
+                                </mat-form-field>
+                                <button class="password__button" type="submit" [ngClass]="recoveryPasswordForm.valid ? 'enabled' : 'disabled'">{{ 'LOGIN.RECOVER-PASSWORD' | translate }}</button>
+                            </form>
+
+                        </div>
+                    </section>
+
+                    <mat-hint class="genericErrorHint errorCard" *ngIf="genericError">{{ genericError }}</mat-hint>
+                    <form class="login-page__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="login-page__form--container">
+                            <mat-form-field class="login-page__inputs--field">
+                                <input matInput placeholder="{{ 'LOGIN.DOCUMENT-EMAIL' | translate }}" formControlName="emailOrCPF">
+                                <mat-icon matPrefix>mail_outline</mat-icon>
+                                <mat-error>{{ 'LOGIN.MAIL-AND-CPF-ERROR' | translate }}</mat-error>
+                                <mat-hint class="errorCard" *ngIf="emailError">{{ emailError }}</mat-hint>
+                            </mat-form-field>
+                            <mat-form-field class="login-page__inputs--field">
+                                <input #passwordCostumer matInput placeholder="{{ 'LOGIN.PASSWORD' | translate }}" formControlName="password" type="password">
+                                <mat-icon matPrefix>lock_open</mat-icon>
+                                <mat-icon class="show-password" matSuffix (click)="showPassword($event)">visibility_off</mat-icon>
+                                <mat-error *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">{{ 'LOGIN.PASSWORD-ERROR' | translate }}</mat-error>
+                                <mat-hint class="errorCard" *ngIf="errorPassword">{{ errorPassword }} {{ 'LOGIN.RECOVER-MESSAGE' | translate }}</mat-hint>
+                            </mat-form-field>
+                        </div>
+                        <section class="lost-password" (click)="toggleState()"><a>{{ 'LOGIN.FORGOT-PASSWORD-OR-EMAIL' | translate }}</a></section>
+                        <button class="btn-login enabled" type="submit" *ngIf="isLoading"><app-loading-spinner></app-loading-spinner></button>
+                        <button class="btn-login" type="submit" [ngClass]="loginForm.valid ? 'enabled' : 'disabled'" *ngIf="!isLoading">{{ 'LOGIN.LOGIN' | translate }}</button>
+                        <div class="login-page__oauth">
+                            <button class="login-page__oauth--google" (click)="socialSignIn('google')">
+                                <span class="icon-google"></span>{{ 'SOCIAL-MEDIA.GOOGLE' | translate }}
+                            </button>
+                            <button class="login-page__oauth--facebook" (click)="socialSignIn('facebook')">
+                                <span class="icon-facebook"></span>{{ 'SOCIAL-MEDIA.FACEBOOK' | translate }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="login-page__footer">
+                    <span class="login-page__footer--span">{{ 'LOGIN.NEW-ON-THE-PLATFORM' | translate }}&nbsp;&nbsp;</span>
+                    <a class="login-page__footer--link" [routerLink]="[ '/cadastro' ]">{{ 'LOGIN.SIGNUP' | translate }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

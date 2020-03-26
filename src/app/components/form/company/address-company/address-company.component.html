@@ -1,0 +1,29 @@
+<mat-card *ngFor="let address of addresses; let i = index">
+    <section class="container_addresses--outter">
+        <div class="container_addresses--inner">
+            <section class="container_addresses--content">
+                <div>
+                    <span>{{address?.typeAddress}}</span>
+                </div>
+                <div>
+                    <span>{{address?.address}}</span> ,
+                    <span>{{address?.number}}</span> -
+                    <span>{{address?.neighborhood}}</span>
+                </div>
+                <div>
+                    <span>{{address?.state}}</span>-
+                    <span>{{address?.city}}</span> -
+                    <span>{{address?.cep}}</span>
+                </div>
+            </section>
+        </div>
+        <section class="container_addresses--icons">
+            <a class="container_addresses--icon" (click)="editAddress(address)">
+                <mat-icon color="primary" class="edit-icon">edit</mat-icon>
+            </a>
+            <a (click)=removeAddress(address)>
+                <mat-icon color="warn" class="delete-icon">delete</mat-icon>
+            </a>
+        </section>
+    </section>
+</mat-card>

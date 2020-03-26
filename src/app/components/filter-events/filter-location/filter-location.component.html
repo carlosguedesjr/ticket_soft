@@ -1,0 +1,43 @@
+<form [formGroup]="filtersLocationForm">
+    <section>
+        <h1>{{ 'PORTAL.FILTER-EVENTS.LOCALE.TITLE' | translate }}</h1>
+        <section class="board-filters-location">
+            <mat-form-field appearance="outline" class="state">
+                <mat-label>{{ 'PORTAL.FILTER-EVENTS.LOCALE.STATE' | translate }}</mat-label>
+            <mat-select placeholder="{{ 'PORTAL.FILTER-EVENTS.LOCALE.STATE' | translate }}" formControlName='state'
+                    (selectionChange)="emitValueSelected()">
+                     <mat-option value=""  selected disabled>{{ 'PORTAL.FILTER-EVENTS.LOCALE.SELECT-STATE'| translate}} 
+                </mat-option> 
+                    <ng-template ngFor let-state [ngForOf]="states">
+                        <mat-option [value]="state.sigla">{{ state.estado }}</mat-option>
+                    </ng-template>
+                </mat-select>
+
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="city">
+                <mat-label>{{ 'PORTAL.FILTER-EVENTS.LOCALE.CITY' | translate }}</mat-label>
+                <mat-select placeholder="{{ 'PORTAL.FILTER-EVENTS.LOCALE.CITY' | translate }}" formControlName='city'>
+                    <!-- <mat-option value="" selected disabled>{{ 'PORTAL.FILTER-EVENTS.LOCALE.SELECT-CITY'| translate}}
+                    </mat-option> -->
+                    <ng-template ngFor let-city [ngForOf]="cities">
+                        <mat-option [value]=city?.idCidade>{{ city.cidade }}</mat-option>
+                    </ng-template>
+                </mat-select>
+            </mat-form-field>
+        </section>
+        <!-- <div class="accept">
+            <div>{{ 'PORTAL.FILTER-EVENTS.LOCALE.TEXT-CONFIRM' | translate }}</div>
+            <button mat-stroked-button matTooltip="{{ 'FILTER-EVENT.CLICK-TO-SEARCH' | translate }}" color="accent"
+                (click)="filterEvents()">
+                <mat-icon>search</mat-icon> {{ 'PORTAL.FILTER-EVENTS.SEARCH' | translate }}
+            </button>
+        </div> -->
+
+        <div class="accept">
+            <div>{{ 'PORTAL.FILTER-EVENTS.DATE.TEXT-CONFIRM' | translate }}</div>
+            <button mat-stroked-button matTooltip="{{ 'FILTER-EVENT.CLICK-TO-SEARCH' | translate }}" color="accent" (click)="filterEvents()">
+                <mat-icon>search</mat-icon> {{ 'PORTAL.FILTER-EVENTS.SEARCH' | translate }}
+            </button>
+        </div>
+    </section>
+</form>

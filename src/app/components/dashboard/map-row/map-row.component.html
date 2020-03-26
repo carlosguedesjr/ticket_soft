@@ -1,0 +1,17 @@
+<section fxFlex="100%" fxLayoutGap="20px" class="mapWrapper">
+  <mat-toolbar class="blue-toolbar">
+    <mat-toolbar-row class="header-toolbar-row">
+      <mat-icon>place</mat-icon>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-card>
+    <mat-card-content>
+      <div>
+        <span>{{ 'DASHBOARD.MAP.TITLE' | translate }} {{ module }}</span>
+      </div>
+      <div>
+        <div id="mapdiv" class="mapdiv"></div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>

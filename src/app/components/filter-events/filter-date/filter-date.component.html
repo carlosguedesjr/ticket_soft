@@ -1,0 +1,38 @@
+<section>
+    <h1 class="select-period">{{ 'PORTAL.FILTER-EVENTS.DATE.TITLE' | translate }}</h1>
+    <section class="board-filters-date">
+        <section class="filter-line">
+            <mat-radio-group (change)="getFilterDate()" [(ngModel)]="periodFilter" class="filter-line-elements">
+                <ng-template ngFor let-filter [ngForOf]="typeFilterDate">
+                    <mat-radio-button [value]="filter.value" class="filter-line-radio">{{ filter.text }}</mat-radio-button>
+                </ng-template>
+            </mat-radio-group>
+        </section>
+        <section class="filter-between-date">
+            <div>
+                <span>De</span>
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'PORTAL.FILTER-EVENTS.DATE.START' | translate }}</mat-label>
+                    <input matInput [matDatepicker]="startDate" placeholder="00/00/0000" mask="00/00/0000" [value]="SDate.value">
+                    <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                    <mat-datepicker #startDate></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="second-date">
+                <span class="between">até</span>
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'PORTAL.FILTER-EVENTS.DATE.END' | translate }}</mat-label>
+                    <input matInput [matDatepicker]="endDate" placeholder="00/00/0000" mask="00/00/0000" [value]="FDate.value">
+                    <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                    <mat-datepicker #endDate></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </section>
+    </section>
+    <div class="accept">
+        <div>{{ 'PORTAL.FILTER-EVENTS.DATE.TEXT-CONFIRM' | translate }}</div>
+        <button mat-stroked-button matTooltip="{{ 'FILTER-EVENT.CLICK-TO-SEARCH' | translate }}" color="accent" (click)="filterEvents()">
+            <mat-icon>search</mat-icon> {{ 'PORTAL.FILTER-EVENTS.SEARCH' | translate }}
+        </button>
+    </div>
+</section>

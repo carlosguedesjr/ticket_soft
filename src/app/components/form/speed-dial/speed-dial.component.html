@@ -1,0 +1,12 @@
+<ul class="main-button" *ngIf="moduleList?.length !== 0">
+  <li matTooltip="Selecione um modulo" matTooltipPosition="left">
+    <a>
+      <mat-icon>add</mat-icon>
+    </a>
+    <ul class="action-buttons">
+      <li *ngFor="let module of moduleList">
+        <app-button type="mat-fab" text="{{ 'DOCUMENTS.' + module.toUpperCase() | translate }}" class="speed-dial-item" (click)="changeModule(module)"></app-button>
+      </li>
+    </ul>
+  </li>
+</ul>

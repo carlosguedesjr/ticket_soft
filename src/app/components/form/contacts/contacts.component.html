@@ -1,0 +1,47 @@
+<form [formGroup]="contactForm" (ngSubmit)="saveForm()">
+
+    <section class="formTop">
+        <section>
+            <div fxLayout.lt-md="column" fxLayoutGap="20px">
+                <mat-form-field fxFlex="40%" fxFill>
+                    <mat-label>{{ 'CONTACTS.TITLE' | translate }}</mat-label>
+                    <mat-select formControlName="type" [value]='item?.tipoTelefone'>
+                        <mat-option *ngFor="let item of typeContacts" [value]="item?.tipoTelefone">
+                            {{ item.descrTipoTelefone | translate }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field fxFlex="40%" fxFill>
+                    <input matInput formControlName="email" placeholder="{{ 'CONTACTS.EMAIL' | translate }}">
+                    <mat-error class="text-danger"
+                        *ngIf="contactForm.get('email')?.errors?.required && (contactForm.get('email').dirty || contactForm.get('email').touched)">
+                        <p>Preencha o campo email</p>
+                    </mat-error>
+                    <mat-error class="text-danger"
+                        *ngIf="contactForm.get('email')?.errors?.email && (contactForm.get('email').dirty || contactForm.get('email').touched)">
+                        <p>Email em formato inválido</p>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+            <div fxLayout.lt-md="column" fxLayoutGap="20px">
+                <mat-form-field fxFlex="40%" fxFill>
+                    <input matInput formControlName="name" placeholder="{{ 'CONTACTS.NAME' | translate }}">
+                    <mat-error class="text-danger"
+                        *ngIf="contactForm.get('name')?.errors?.required && (contactForm.get('name').dirty || contactForm.get('name').touched)">
+                        <p>Preencha o campo nome</p>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field fxFlex="40%" fxFill>
+                    <input matInput formControlName="phone" placeholder="{{ 'CONTACTS.PHONE' | translate }}">
+                    <mat-error class="text-danger"
+                        *ngIf="contactForm.get('phone')?.errors?.required && (contactForm.get('phone').dirty || contactForm.get('phone').touched)">
+                        <p>Preencha o campo telefone</p>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <button mat-button type="submit"  *ngIf="contactForm.valid" class="btnSalvar">Salvar</button>
+        </section>
+    </section>
+    
+</form>

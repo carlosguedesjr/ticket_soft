@@ -1,0 +1,9 @@
+<section class="profile-btn-container">
+    <div class="profile-menu" (document:click)="toggleLoginPanel($event)">
+        <mat-icon matPrefix class="profile-icon clickable-icon" *ngIf="!loggedUser.imageUrl">account_circle</mat-icon>
+        <img class="profile-img clickable-icon" [src]="loggedUser.imageUrl" alt="Imagem de Perfil" *ngIf="loggedUser.imageUrl">
+        <a class="profile-link">{{ loggedUser.name ? loggedUser.name : loggedUser.email }}</a>
+        <mat-icon matPrefix [ngClass]="{arrowRotated: arrowDownStatus}" class="profile-link">keyboard_arrow_down</mat-icon>
+    </div>
+</section>
+<app-popover-profile [@profilePopupState]='state'></app-popover-profile>

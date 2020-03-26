@@ -1,0 +1,54 @@
+.support {
+    width: 100%;
+}
+
+.support-title {
+    display: table;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 80px;
+}
+
+.support-title h1 {
+    margin: 0;
+    font-size: 2em;
+    font-weight: 500;
+    color: #FF6F00;
+    font-family: 'Open Sans', 'Raleway', sans-serif
+}
+
+.support-title h2 {
+    margin: 0;
+    color: #3265a7;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Raleway', sans-serif
+}
+
+.support-footer-title {
+    display: table;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 80px;
+}
+
+
+.support-footer-title h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 500;
+    color: #50525f;
+    font-family: 'Open Sans', 'Raleway', sans-serif
+}
+
+.support-footer-title h1 strong {
+    color: #FF6F00;
+}
+
+.support-content img {
+    float: left;
+    padding: 0;
+    margin: 0;
+    width: 25%;
+}

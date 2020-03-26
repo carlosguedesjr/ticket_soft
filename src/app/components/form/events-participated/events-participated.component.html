@@ -1,0 +1,11 @@
+<div *ngIf="!events" class="container-not-events">
+    <mat-error>{{ 'ERRORS.NOT-FOUND-SEARCH-EVENT' | translate }}</mat-error>
+</div>
+
+<section class="search">
+    <app-filter-events [email]="email" (setValueFilter)="tempValueFilter"></app-filter-events>
+</section>
+
+<section class="mat-flex">
+    <app-cards [pastEvents]="true" [setValueFilter]="tempValueFilter"></app-cards>
+</section>

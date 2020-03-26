@@ -1,0 +1,88 @@
+<section class="register-user">
+    <div class="register-user__container">
+        <div class="register-user__container--inner">
+            <div class="login-page__header">
+                <img class="login-page--logo" src="https://upload.wikimedia.org/wikipedia/pt/6/67/EPTV.png" alt="">
+            </div>
+
+            <div class="teste">
+                
+                <div class="register-user__container-success" [ngClass]="{'active': showSuccessMessage}">
+                    <span class="register-user__message-success">
+                        {{ 'LOGIN.SUCCESS-MESSAGE' | translate }}
+                    </span>
+                </div>
+    
+                <form [formGroup]="registerUserForm" (ngSubmit)="registerUser()">
+                    <div class="register-user__inputs-first-row">
+                        <mat-form-field class="register-user--name">
+                            <input matInput placeholder="{{ 'PROFILE.USER.NAME' | translate }}" formControlName="name" >
+                            <mat-error>{{ 'ERRORS.NAME-ERROR' | translate }}</mat-error>
+                        </mat-form-field>
+                        
+                        <!-- <mat-form-field class="register-user--second-name">
+                            <input matInput placeholder="{{ 'PROFILE.USER.LAST-NAME' | translate }}" formControlName="lastName">
+                            <mat-error>Digite um sobrenome válido. Máx 30 caracteres.</mat-error>
+                        </mat-form-field> -->
+                    </div>
+                    
+                    <div>
+                        <mat-form-field class="register-user--mail">
+                            <input type="email" matInput placeholder="{{ 'PROFILE.USER.EMAIL' | translate }}" formControlName="mail">
+                            <mat-error>{{ 'ERRORS.MAIL-ERROR' | translate }}</mat-error>
+                        </mat-form-field>
+                    </div>
+        
+                    <div class="register-user--inputs-second-row">
+                        <mat-form-field class="register-user__CPF">
+                            <input #document 
+                            matInput placeholder="{{ 'PROFILE.USER.DOCUMENT' | translate }}"
+                            formControlName="CPF">
+                            <mat-error>{{ 'ERRORS.CPF-ERROR' | translate }}</mat-error>
+                            <mat-hint>{{ document.value.length }} / 14</mat-hint>
+                        </mat-form-field>
+        
+                        <mat-form-field class="register-user__gender">
+                            <mat-label>{{ 'GENDER.TITLE' | translate }}</mat-label>
+                            <mat-select formControlName="gender">
+                                <mat-option *ngFor="let gender of genders" [value]="gender.type">
+                                    {{ gender.description | translate }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+        
+                    <div class="register-user__inputs-third-row">
+                        <mat-form-field class="register-user__date">
+                            <input matInput [matDatepicker]="datebirtth"
+                                placeholder="{{ 'PROFILE.USER.DATE-OF-BIRTH' | translate }}" formControlName="birthDate"
+                                >
+                            <mat-datepicker-toggle matSuffix [for]="datebirtth"></mat-datepicker-toggle>
+                            <mat-datepicker #datebirtth></mat-datepicker>
+                            <mat-error>{{ 'LOGIN.AGE-ALERT' | translate }}</mat-error>
+                        </mat-form-field>
+                    </div>
+        
+                    <div class="register-user__inputs-fourth-row">
+                        <mat-form-field class="register-user__password">
+                            <input #viewPassword type="password" matInput placeholder="{{ 'PROFILE.USER.NEW-PASSWORD' | translate }}" formControlName="password">
+                            <mat-icon class="show-password" matSuffix (click)="showPassword($event, 1, viewPassword)">visibility_off</mat-icon>
+                            <mat-error>{{ 'LOGIN.PASSWORD-ERROR' | translate }}</mat-error>
+                        </mat-form-field>
+        
+                        <mat-form-field class="register-user__confirm-password">
+                            <input #viewConfirmPassword type="password" matInput placeholder="{{ 'PROFILE.USER.CONFIRM-PASSWORD' | translate }}" maxlength="15" formControlName="confirmedPassword">
+                            <mat-icon class="show-password" matSuffix (click)="showPassword($event, 2, viewConfirmPassword)">visibility_off</mat-icon>
+                            <mat-error>{{ 'LOGIN.PASSWORD-ERROR' | translate }}</mat-error>
+                            <mat-hint class="errorCard" *ngIf="registerUserForm.errors">{{ 'RESPONSE-RESET.PASSWORD-DONT-MATCH' | translate }}</mat-hint>
+                        </mat-form-field>
+                    </div>
+    
+                    <div class="register-user__container--button">
+                        <button class="register-user__button" type="submit" [ngClass]="registerUserForm.valid ? 'enabled' : 'disabled'">{{ 'LOGIN.SIGNUP' | translate }}</button>                       
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

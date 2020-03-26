@@ -1,0 +1,38 @@
+.example-container {
+    overflow: auto;
+}
+
+.table {
+    width: 100%;
+}
+
+::ng-deep .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+    padding: 0 5px;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
+.container_card_address {
+    width: 350px;
+    height: 150px;
+    border-width: medium;
+    border-style: solid;
+    border-color: #00f;
+}
+
+.btnSalvar{
+    border-radius: 5px;
+    color: white;
+    background-color: #3f51b5;
+    transition: 0.3s all;
+}
+
+.btnSalvar:hover {
+    background-color: rgb(255, 205, 54);
+    transform: translateY(1px);
+    cursor: pointer;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}

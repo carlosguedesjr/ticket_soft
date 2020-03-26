@@ -1,0 +1,161 @@
+<form [formGroup]="firstFormGroup" (ngSubmit)="submitForm(firstFormGroup)">
+    <section class="shopping-cart">
+        <section class="checkout-title">
+            <mat-icon>shopping_cart</mat-icon>
+            <section>{{ 'SHOPPING-CART.MY-CART' | translate }}</section>
+        </section>
+        <section class="shopping-cart-itens">
+            <form [formGroup]="dynamicFormGroup">
+                <section>
+                    <mat-accordion
+                        *ngFor="let event of dynamicFormGroup.get('myEvents')['controls']; let eventIndex = index">
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header [@.disabled]="true" expandedHeight="110px"
+                                collapsedHeight="110px">
+                                <mat-panel-title>
+                                    <img class="thumb-item-cart" src="{{ event.get('thumb').value }}" />
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    <section class="item-cart-main-title">
+                                        <span class="main-title"> {{ event.get('text').value }}</span>
+                                        <span class="main-subtitle"> {{ event.get('subtitle').value }}</span>
+                                    </section>
+                                    <section class="item-cart-total-value">
+                                        {{ event.get('price').value | currency:'BRL':true }}
+                                    </section>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <section>
+                                <section [formGroup]="event">
+                                    <mat-accordion
+                                        *ngFor="let inv of event.get('invites').controls,let inviteIndex = index">
+                                        <mat-expansion-panel [formGroup]="inv">
+                                            <mat-expansion-panel-header [@.disabled]="true" expandedHeight="70px"
+                                                collapsedHeight="70px">
+                                                <mat-panel-title class="name-invitation">
+                                                    {{ inv.get('name').value }}
+                                                </mat-panel-title>
+                                                <mat-panel-description>
+                                                    <section class="type-invitation">
+                                                        <app-checkout-mat-select-dinamyc
+                                                            (getValueSelected)="getValueSelected($event)"
+                                                            [event]="event"
+                                                            [valueSelected]="inv.get('type_invite_selected')"
+                                                            [reference]='{"invit":inviteIndex,"eventId":event.get("id").value,"eventIndex":eventIndex}'>
+                                                        </app-checkout-mat-select-dinamyc>
+                                                    </section>
+                                                    <section class="value-invitation">
+                                                        {{ inv.get('price').value | currency:'BRL' }}
+                                                    </section>
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            <section>
+                                                <section>
+                                                    <section class="step-one-titles">Dados</section>
+                                                    <section class="invite-attributes">
+                                                        <div *ngFor="let envAttr of event.get('attributes').controls">
+                                                            <div [formGroup]="envAttr">
+                                                                <app-checkout-dynamic-attributes
+                                                                    (getEventInput)="getEventAttributes($event)"
+                                                                    [attributes]="envAttr"
+                                                                    [reference]='{"invit":inviteIndex,"event_id":event.get("id").value,"event_index":eventIndex}'
+                                                                    [event]="event">
+                                                                </app-checkout-dynamic-attributes>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </section>
+                                                <section>
+                                                    <section class="step-one-titles">Produtos</section>
+                                                    <app-checkout-dynamic-products
+                                                        (emitValueProductAttribute)="getValueProductAttribute($event)"
+                                                        (actionProduct)="actionProduct($event)"
+                                                        [reference]='{"invit":inviteIndex,"event_id":event.get("id").value,"event_index":eventIndex}'
+                                                        [products]="event.get('products')"
+                                                        [invit]="inv.get('products')">
+                                                    </app-checkout-dynamic-products>
+                                                </section>
+                                                <section>
+                                                    <section class="step-one-titles">Compre também</section>
+                                                    <app-checkout-dynamic-optional-products
+                                                        (emitValueProductAttribute)="getValueProductAttribute($event)"
+                                                        (actionOptionalProduct)="actionOptionalProduct($event)"
+                                                        [reference]='{"invit":inviteIndex,"event_id":event.get("id").value,"event_index":eventIndex}'
+                                                        [optional_products]="event.get('optional_products')"
+                                                        [invit]="inv.get('optional_products')">
+                                                    </app-checkout-dynamic-optional-products>
+                                                </section>
+                                            </section>
+                                        </mat-expansion-panel>
+                                    </mat-accordion>
+                                </section>
+                            </section>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </section><!--  -->
+            </form>
+        </section>
+        <section class="cart-shipping">
+            <section class="title-shipping">
+                <mat-icon matSuffix>local_shipping</mat-icon>
+                <span>Calcular Frete</span>
+            </section>
+            <section class="input-shipping">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="00.000-00" mask="00.000-000" (blur)="getCEPData($event)"
+                        formControlName="cep">
+                </mat-form-field>
+                <a class="search-postal-code" target="_blank"
+                    href="http://www.buscacep.correios.com.br/sistemas/buscacep/">
+                    <mat-icon>search</mat-icon> BUSCAR MEU CEP
+                </a>
+            </section>
+            <section class="select-shipping" *ngIf="address !== undefined">
+                <section class="shipping-address">
+                    <mat-icon>room</mat-icon>
+                    <span> {{ address.logradouro }} - {{ address.bairro }}</span>
+                    <span> {{ address.localidade }}/{{ address.uf }}</span>
+                </section>
+                <section class="type-shipping">
+                    <label class="example-margin">Selecione a opção de frete</label>
+                    <mat-radio-group>
+                        <ng-template ngFor let-i=index let-ship [ngForOf]="shipping">
+                            <mat-radio-button [checked]="ship.type === 'sedex'" [value]="ship.type">
+                                <span class="shipping-type"><img class="thumb"
+                                        src="{{ ship.thumb }}" />{{ ship.type }}</span>
+                                <span class="shipping-value">{{ 'CURRENCY.SYMBOL' | translate }}{{ ship.value }}</span>
+                            </mat-radio-button>
+                        </ng-template>
+                    </mat-radio-group>
+                </section>
+            </section>
+        </section>
+        <section class="cart-subtotal">
+            <section class="cart-term">
+                <h1>Termo de responsabilidade de compra on-line</h1>
+                <section class="term" [innerHTML]="term"></section>
+                <mat-checkbox class="accept-term" formControlName="checkbox">Concordo com o termo de responsabilidade e
+                    o regulamento
+                </mat-checkbox>
+            </section>
+            <section class="total-itens">
+                <section class="cart-total">
+                    <div class="value">{{ 'CURRENCY.SYMBOL' | translate }} {{ cartTotal }}</div>
+                    <!-- <div class="text">Total - {{ cart }} <span *ngIf="cart <= 1">Item</span><span *ngIf="cart >= 2">
+                            Itens</span>
+                    </div> -->
+                </section>
+                <section class="cart-payment">
+                    <div class="text">Em até 2x de R$ 31,47 sem juros</div>
+                    <div class="credit-card"></div>
+                </section>
+            </section>
+        </section>
+        <section class="confirm-step">
+            <button mat-button type="submit">{{ 'ACTIONS.CONTINUE' | translate }}</button>
+        </section>
+        <!-- <section class="confirm-step">
+    <button mat-button matStepperNext>{{ 'ACTIONS.CONTINUE' | translate }}</button>
+</section> -->
+    </section>
+</form>

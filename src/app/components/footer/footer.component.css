@@ -1,0 +1,74 @@
+.footer {
+    background: #202020;
+    padding: 0 28px 0 28px;
+    padding-left: 0;
+}
+
+.content-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px 0 0 0;
+}
+
+.content-copyright {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 30px auto 0 auto;
+    padding: 0 0 20px 0;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #bdcadb;
+}
+
+.content-footer section {
+    float: left;
+    margin: 10px;
+    color: #fff;
+}
+
+.content-footer section h3 {
+    color: rgba(255, 255, 255, 0.87);
+    font-family: "monradbold", sans-serif;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.content-footer section ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: "monradregular", sans-serif;
+    font-size: 13px;
+    margin-bottom: 1rem;
+}
+
+.content-footer section ul li {
+    margin-bottom: 5px;
+}
+
+.content-footer section ul li a {
+    color: rgba(255, 255, 255, 0.54);
+    text-decoration: none;
+}
+
+.content-footer section ul li a:hover {
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.social a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.54);
+    height: 25px;
+    margin-right: 20px;
+}
+
+.social a:hover {
+    color: rgba(255, 255, 255, 0.87);
+}

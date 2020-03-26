@@ -1,0 +1,340 @@
+.login-page {
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to right bottom, rgba(1, 1, 90, 0.8), rgba(61, 21, 3, 0.8)), url('../../../../../assets/images/background-login.jpg');
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* OUTER CONTAINER */
+.login-page__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* INNER CONTAINER */
+.login-page__container--inner {
+    background-color: rgba(255, 255, 255, 0.65);
+    width: 350px;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 3px 4px 5px rgba(8, 8, 8, 0.2);
+}
+
+.login-page__container--superinner {
+    margin: 3.5rem auto 1rem auto;
+    width: 80%;
+}
+
+/* HEADER */
+
+.login-page__header {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.login-page--logo {
+    position: absolute;
+    height: 100px;
+    top: -50px;
+    transform: translateX(-50%);
+}
+
+.login-page__header h2 {
+    color: #444;
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin: 0;
+}
+
+/* BUTTONS */
+.login-page__oauth {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.login-page__oauth--facebook {
+    background-color: #3b5998;
+    color: white;
+}
+
+.login-page__oauth--google {
+    background-color: white;
+}
+
+.login-page__oauth--google,
+.login-page__oauth--facebook {
+    width: 48%;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    display: flex;
+    direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+}
+
+.login-page__oauth--google:hover,
+.login-page__oauth--google:active,
+.login-page__oauth--facebook:hover,
+.login-page__oauth--facebook:active {
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+}
+
+.icon-facebook {
+    background-image: url('src/assets/icons/facebook.svg');
+    background-repeat: no-repeat;
+    display: inline-flex;
+    width:15px;
+    height: 15px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.icon-google {
+    background-image: url('src/assets/icons/google.svg');
+    background-repeat: no-repeat;
+    display: inline-flex;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* FORM */
+
+.login-page__form {
+   display: flex;
+   flex-direction: column;
+}
+
+.mat-form-field {
+    width: 100%;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.mat-form-field .mat-icon {
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-bottom: 6px;
+  }
+
+.login-page__form--container {
+    margin-bottom: 1rem;
+}
+
+.lost-password {
+    text-align: right;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.lost-password a {
+    text-decoration: none;
+    color: #d46408;
+}
+
+.lost-password a:hover,
+.lost-password a:active {
+    color: white;
+    cursor: pointer;
+}
+
+.btn-login {
+    border-radius: 5px;
+    margin-bottom: 0.7rem;
+    border: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    background-color: rgb(255, 205, 54);
+    outline: none;
+    border: 1px solid transparent;
+    color: #fff;
+    padding: 0.7rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.btn-login:hover,
+.btn-login:active {
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+}
+
+.login-page__footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: baseline;
+    letter-spacing: 1.2;
+    font-size: 0.8rem;
+}
+
+.login-page__footer--link {
+    color: #d46408;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.login-page__footer--link:hover,
+.login-page__footer--link:active {
+    cursor: pointer;
+    color: white;
+}
+
+/* PASSWORD RECOVERY */
+
+.password__container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  
+.password__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+  
+.arrowBack-icon {
+    color: #dc6504;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.arrowBack-icon:hover {
+    cursor: pointer;
+}
+
+.password__span {
+    position: absolute;
+    white-space: pre-line;
+    top: 10%;
+    margin: 30px;
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.login-page--recovery-password {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+}
+
+.login-page--recovery-password input {
+    font-size: 0.8rem;
+}
+
+.password__button.enabled {
+    position: absolute;
+    transform: translateX(-50%);
+    top: 70%;
+    left: 50%;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc6504;
+    color: white;
+    padding: 10px 20px;
+}
+
+.password__button.enabled:hover,
+.password__button.enabled:active {
+    cursor: pointer;
+    background-color: #ec7d22;
+    box-shadow: 1px 2px 5px rgba(103, 77, 77, 0.3);
+}
+
+.password__button.disabled {
+    outline: none;
+    background: rgb(179, 177, 171);
+    position: absolute;
+    transform: translateX(-50%);
+    top: 70%;
+    left: 50%;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    transition: all 0.1s ease-in-out;
+}
+
+/* MESSAGE PASSWORD RECOVERY */
+.confirm-reset__container.active {
+    opacity: 1;
+    z-index: 3000;
+}
+
+.confirm-reset__container {
+    opacity: 0;
+    z-index: -3000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 1);
+    transition: all .7s;
+}
+
+.confirm-reset__innercontainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.confirm-reset__message {
+    position: absolute;
+    white-space: pre-line;
+    top: 10%;
+    margin: 30px;
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* ANIMATIONS */
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(0);
+    }
+    40% {
+      transform: translateX(-10px);
+    }
+    60% {
+      transform: translateX(-5px);
+    }
+  }
+
+  .bounce {
+    animation: bounce 2s infinite;
+  }

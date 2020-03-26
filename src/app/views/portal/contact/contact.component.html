@@ -1,0 +1,42 @@
+<form [formGroup]="contactForm" (ngSubmit)="sendContact($event)">
+    <div class="container-contact">
+        <mat-form-field class="contactForm_mat-form-field">
+            <input matInput placeholder="Nome" maxlength="50" formControlName="name">
+            <mat-error class="text-danger"
+                *ngIf="contactForm.get('name')?.errors?.required && (contactForm.get('name').dirty || contactForm.get('name').touched)">
+                <p>Preencha o campo nome</p>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="contactForm_mat-form-field">
+            <input matInput placeholder="Email" maxlength="50" formControlName="email"
+                [ngClass]="{'is-invalid': contactForm.get('email').errors && (contactForm.get('email').dirty || contactForm.get('email').touched)}">
+            <mat-error class="text-danger"
+                *ngIf="contactForm.get('email')?.errors?.required && (contactForm.get('email').dirty || contactForm.get('email').touched)">
+                <p>Preencha o campo email</p>
+            </mat-error>
+            <mat-error class="text-danger"
+                *ngIf="contactForm.get('email')?.errors?.email && (contactForm.get('email').dirty || contactForm.get('email').touched)">
+                <p>Email em formato inválido</p>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="contactForm_mat-form-field">
+            <input matInput placeholder="Assunto" maxlength="50" formControlName="subject">
+            <mat-error class="text-danger"
+                *ngIf="contactForm.get('subject')?.errors?.required && (contactForm.get('subject').dirty || contactForm.get('subject').touched)">
+                <p>Preencha o campo Assunto</p>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="contactForm_mat-form-field">
+            <textarea matInput placeholder="Mensagem" formControlName="message"></textarea>
+            <mat-error class="text-danger"
+            *ngIf="contactForm.get('message')?.errors?.required && (contactForm.get('message').dirty || contactForm.get('message').touched)">
+            <p>Preencha a mensagem</p>
+        </mat-error>
+        </mat-form-field>
+        <button mat-button type="submit" [disabled]="!contactForm.valid">Enviar</button>
+    </div>
+    
+</form>

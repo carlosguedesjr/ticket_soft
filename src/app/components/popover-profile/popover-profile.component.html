@@ -1,0 +1,13 @@
+<section class="popup-profile">
+    <ul>
+        <li >
+            <a [routerLink]="[ '/admin', 'dashboard' ]" id="dashboard-link" class="dashboard-link">{{ 'POPOVER.DASHBOARD' | translate }}</a>
+        </li>
+        <li>
+            <a [routerLink]="[ '/admin', 'perfil' ]" class="dashboard-link">{{ 'POPOVER.MY-PROFILE' | translate }}</a>
+        </li>
+        <li>
+            <a routerLink="/home" (click)="logout()">{{ 'POPOVER.LOGOUT' | translate }}</a>
+        </li>
+    </ul>
+</section>

@@ -1,0 +1,72 @@
+<form [formGroup]="addressForm" (ngSubmit)="saveForm()">
+  <section class="addressContainer">
+    <section fxLayout="column">
+      <div fxLayout.lt-md="column" fxLayoutGap="20px">
+        <mat-form-field fxFlex="60%">
+          <mat-label>{{'SHIPPINGADDRESS.SELECTTYPEADDRESS'  | translate}}</mat-label>
+          <mat-select formControlName="type">
+            <mat-option *ngFor="let address of addressType" [value]=address?.idTipoEndereco>
+              {{ address.descricaoTipoEndereco | translate}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout.lt-md="column" fxLayoutGap="20px">
+        <mat-form-field fxFlex="20%">
+          <input matInput #postalCode (blur)="getCEPData($event)" (keyup.enter)="getCEPData($event)"
+            formControlName="postalcode" placeholder="{{ 'PROFILE.ADDRESS.POSTAL-CODE' | translate }}">
+          <mat-hint align="end">{{ postalCode.value.length }} / 10</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="60%">
+          <input disabled matInput formControlName="address" placeholder="{{ 'PROFILE.ADDRESS.LOCATION' | translate }}">
+        </mat-form-field>
+        <mat-form-field fxFlex="20%">
+          <input matInput #number formControlName="number" placeholder="{{ 'PROFILE.ADDRESS.NUMBER' | translate }}">
+        </mat-form-field>
+      </div>
+      <div fxLayout.lt-md="column" fxLayoutGap="20px">
+        <mat-form-field fxFlex="33%" fxFill>
+          <input matInput formControlName="neighborhood" placeholder="{{ 'PROFILE.ADDRESS.NEIGHBORHOOD' | translate }}">
+        </mat-form-field>
+        <mat-form-field fxFlex="33%" fxFill>
+          <input matInput formControlName="complementaryInfo"
+            placeholder="{{ 'PROFILE.ADDRESS.COMPLEMENTARY-INFO' | translate }}">
+        </mat-form-field>
+        <mat-form-field fxFlex="34%" fxFill>
+          <input matInput formControlName="referencePoint"
+            placeholder="{{ 'PROFILE.ADDRESS.REFENCE-POINT' | translate }}">
+        </mat-form-field>
+      </div>
+      <div fxLayout.lt-md="column" fxLayoutGap="20px">
+        <mat-form-field fxFlex="20%" fxFill>
+          <mat-label>{{ 'PROFILE.ADDRESS.COUNTRY' | translate }}</mat-label>
+          <mat-select formControlName="country" (selectionChange)="setStates($event)">
+            <mat-option *ngFor="let country of countries" [value]='country?.idPais'>
+              {{ country.nomePais }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="40%" fxFill>
+          <mat-label>{{ 'PROFILE.ADDRESS.STATE' | translate }}</mat-label>
+          <mat-select formControlName="state" (selectionChange)="searchCity($event.value)" [(ngModel)]="selectState"
+            (ngModelChange)="onSelectionState()" [disabled]="!states">
+            <mat-option *ngFor="let state of states" [value]=state?.sigla>
+              {{ state.estado }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="40%" fxFill>
+          <mat-label>{{ 'PROFILE.ADDRESS.CITY' | translate }}</mat-label>
+          <mat-select formControlName="city" (selectionChange)="setCity($event.value)" [disabled]="!cities">
+            <mat-option *ngFor="let city of cities" [value]=city?.idCidade>
+              {{ city.cidade}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button mat-button type="submit" *ngIf="data.address" class="btnSalvar">Atualizar</button>
+      <button mat-button type="submit" *ngIf="!data.address" class="btnSalvar">Salvar</button>
+    </section>
+  </section>
+</form>

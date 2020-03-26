@@ -1,0 +1,15 @@
+<mat-form-field>
+    <mat-label>Tipo de convite</mat-label>
+    <mat-select [(ngModel)]="typeSelected" (selectionChange)="emitValueSelected($event.value)">
+        <ng-template ngFor let-invTypeIndex=index let-invType [ngForOf]="event.get('invite_type').controls">
+            <div [formGroup]="invType">
+                <mat-option
+                    [value]="invType.get('id').value">
+                    <mat-icon matTooltip="{{ invType.get('description').value }}"
+                        [ngClass]="{ classInfo: invType.get('description').value == '' }">
+                        *</mat-icon> <span>{{ invType.get('type').value }}</span>
+                </mat-option>
+            </div>
+        </ng-template>
+    </mat-select>
+</mat-form-field>

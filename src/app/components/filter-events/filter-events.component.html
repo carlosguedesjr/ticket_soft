@@ -1,0 +1,45 @@
+<section #boardfilters class="board-filter" (document:click)="outClickFilterEvent($event)">
+    <section class="board-min-filters">
+        <div class="board-min-filters-left">
+            <section class="search-text">
+                <mat-icon class="icon-search">search</mat-icon>
+                <mat-form-field fxFlex class="top-7" class="search-field">
+                    <input type="text" matInput id="txtData" name="txtData"
+                        placeholder="{{ 'PORTAL.FILTER-EVENTS.TEXT' | translate }}" (keyup)="onKey($event)">
+                </mat-form-field>
+            </section>
+        </div>
+        <div class="board-min-filters-right">
+            <section class="board-custom-filters">
+                <div class="custom-filters" id="date" (click)="getFilter($event)">
+                    <mat-icon class="icon">date_range</mat-icon> {{ 'PORTAL.FILTER-EVENTS.FILTER-PERIOD' | translate }}
+                    <mat-icon class="arrow-up">keyboard_arrow_up
+                    </mat-icon>
+                </div>
+            </section>
+            <section class="board-custom-filters">
+                <div class="custom-filters" id="locality" (click)="getFilter($event)">
+                    <i class="fas fa-street-view icon"></i> {{ 'PORTAL.FILTER-EVENTS.FILTER-LOCALE' | translate }}
+                    <mat-icon class="arrow-up">keyboard_arrow_up
+                    </mat-icon>
+                </div>
+            </section>
+            <section class="board-custom-filters">
+                <div class="custom-filters" id="modality" (click)="getFilter($event)">
+                    <i class="fas fa-user-astronaut icon"></i>
+                    {{ 'PORTAL.FILTER-EVENTS.FILTER-CATEGORIES' | translate }}
+                    <mat-icon class="arrow-up">keyboard_arrow_up
+                    </mat-icon>
+                </div>
+            </section>
+        </div>
+    </section>
+    <section class="expand-filters">
+        <app-filter-location (locationEvent)="receiveLocation($event)" [eventName]="eventName" (filteredEvents)="receiveFilteredEvents($event)"
+            *ngIf="elementTarget === 'locality'"></app-filter-location>
+        <app-filter-modality (categoriesEvent)="receiveCategory($event)" [eventName]="eventName" (filteredEvents)="receiveFilteredEvents($event)"
+            *ngIf="elementTarget === 'modality'"></app-filter-modality>
+        <app-filter-date (dateEvent)="receiveDate($event)" [eventName]="eventName" *ngIf="elementTarget === 'date'" (filteredEvents)="receiveFilteredEvents($event)">
+        </app-filter-date>
+    </section>
+</section>

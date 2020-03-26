@@ -1,0 +1,128 @@
+<section class="reset-page">
+    <div class="reset-page__container">
+        
+        <div class="reset-page__container--iner" *ngIf="currentState == 'NotVerified'">
+            <div class="reset-page__container--notVerified">
+                <div class="reset-page__container--not-verified-inner">
+                    <h2>{{ 'RESPONSE-RESET.INVALID-URL' | translate }}</h2>
+                    <i class="material-icons sad">sentiment_very_dissatisfied</i>
+                </div>
+            </div>
+        </div>
+
+        <div class="reset-page__container--inner" *ngIf="currentState == 'Verified'">
+
+            <section class="reset-page__container-success" [ngClass]="{'active': showSuccessMessage}">
+                <span class="reset-page__message-success">
+                    {{ 'LOGIN.SUCCESS-RESTORED' | translate }}
+                </span>
+            </section>
+
+            <div class="reset-page__container--recover">
+                <div class="reset-page__container--recover-inner">
+                    <div class="reset-page__container--card">
+                        <div class="reset-page__container-card-body">
+                            <h5 class="reset-page__container-card--title">
+                                {{ 'RESPONSE-RESET.RESET-PASSWORD' | translate }}
+                            </h5>
+                            <p class="reset-page__container-card--description">{{ 'RESPONSE-RESET.PASSWORD-ALERT' | translate }}</p>
+                            <div>
+                                <mat-hint class="errorMessageHint errorCard" *ngIf="errorMessage">{{ errorMessage }}</mat-hint>
+                            </div>
+                            <div>
+                                <mat-hint class="successMessageHint errorCard" *ngIf="errorMessage">{{ 'LOGIN.SUCCESS-MESSAGE' | translate }}</mat-hint>
+                            </div>
+
+                            <form class="reset-page__form" [formGroup]="responseResetForm" (ngSubmit)="ResetPassword(responseResetForm)">
+                                <div class="reset-page__form--container">
+                                    <mat-form-field class="reset-page__inputs--field">
+                                        <input #passwordReset matInput placeholder="{{ 'LOGIN.PASSWORD-RESET' | translate }}" formControlName="newPassword" type="password">
+                                        <mat-icon matPrefix>lock_open</mat-icon>
+                                        <mat-icon class="show-password" matSuffix (click)="showPassword($event, 1)">visibility_off</mat-icon>
+                                        <mat-error>Digite uma senha válida</mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field class="login-page__inputs--field">
+                                        <input #passwordResetConfirm matInput placeholder="{{ 'LOGIN.PASSWORD-RESET-CONFIRM' | translate }}" formControlName="confirmPassword" type="password">
+                                        <mat-icon matPrefix>lock_open</mat-icon>
+                                        <mat-icon class="show-password" matSuffix (click)="showPassword($event, 2)">visibility_off</mat-icon>
+                                        <mat-error>{{ 'RESPONSE-RESET.PASSWORD-ERROR' | translate }}</mat-error>
+                                        <mat-hint class="errorCard" *ngIf="responseResetForm.errors">{{ 'RESPONSE-RESET.PASSWORD-DONT-MATCH' | translate }}</mat-hint>
+                                    </mat-form-field>
+                                </div>
+                                <button class="reset-page__button enabled" type="submit" *ngIf="isLoading"><app-loading-spinner></app-loading-spinner></button>
+                                <button 
+                                    class="reset-page__button"
+                                    type="submit"
+                                    *ngIf="!isLoading"
+                                    [ngClass]="responseResetForm.valid ? 'enabled' : 'disabled'"
+                                    [disabled]="!responseResetForm.valid">
+                                    {{ 'LOGIN.PASSWORD-RESET-BTN' | translate }}
+                                </button>
+                                <!-- [ngClass]="loginForm.valid ? 'enabled' : 'disabled'" *ngIf="!isLoading" -->
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- <div class="container-fluid form">
+    <div class="row" *ngIf="CurrentState=='Wait'">
+        <div class="col-md-12  close-form">
+            <h2> Please Wait...</h2>
+        </div>
+    </div>
+    <div class="row"
+        *ngIf="CurrentState=='NotVerified'">
+        <div class="col-md-12">
+            <h2> Invalid URL.</h2>
+        </div>
+    </div>
+    <div class="row" *ngIf="CurrentState=='Verified'">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Set New Password</h5>
+                    <div>
+                        <div id="errorMsg" *ngIf="errorMessage">
+                            <span>{{errorMessage}}</span>
+                        </div>
+                        <div id="successMsg" *ngIf="successMessage">
+                            <span>{{successMessage}}</span>
+                        </div>
+                        <form action="" [formGroup]="ResponseResetForm" (ngSubmit)="ResetPassword(ResponseResetForm)">
+                            <div class="form-group">
+                                <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Password"
+                                    type="password" id="password" formControlName="newPassword" />
+                                <span *ngIf="!ResponseResetForm.get('newPassword').valid && !IsResetFormValid"
+                                    class="help-block">Password is required with atleast 4 characters.</span>
+                            </div>
+                            <div class="form-group">
+                                <input _ngcontent-c0="" class="form-control form-control-lg"
+                                    placeholder="Confirm Password" type="password" id="cpassword"
+                                    formControlName="confirmPassword" />
+                                <span *ngIf="!ResponseResetForm.get('confirmPassword').valid && !IsResetFormValid"
+                                    class="help-block">. </span>
+                                <span
+                                    *ngIf="ResponseResetForm.get('confirmPassword').valid && (ResponseResetForm.get('confirmPassword').value != ResponseResetForm.get('newPassword').value) && !IsResetFormValid"
+                                    class="help-block">Confirm Password does not match with password.</span>
+                            </div>
+                            <div class="form-group">
+                                <div>
+
+                                    <button type="submit" class="  btn btn-primary">Update
+                                        Password</button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->

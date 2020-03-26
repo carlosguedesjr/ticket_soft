@@ -1,0 +1,140 @@
+mat-toolbar {
+  color: white;
+  position: absolute;
+  width: 63px;
+  height: 65px;
+  z-index: 1;
+  margin-left: 11px;
+  border-radius: 3px;
+  width: 70px;
+  height: 70px;
+}
+
+.purple-toolbar {
+  background: linear-gradient(60deg, #a72abd, #9021a2);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(85, 60, 162, 0.5);
+}
+
+.pink-toolbar {
+  background: linear-gradient(60deg, #ec407a, #d81b60);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(233, 30, 99, .5);
+}
+
+.green-toolbar {
+  background: linear-gradient(60deg, #66bb6a, #43a047);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(76, 175, 80, .5);
+}
+
+.blue-toolbar {
+  background: linear-gradient(60deg, #26c6da, #00acc1);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(0, 188, 212, .5);
+}
+
+mat-card {
+  margin-top: 20px;
+  padding-top: 63px;
+  border-radius: 5px;
+  display: grid;
+}
+
+mat-card-content {
+  margin-bottom: 0;
+}
+
+mat-toolbar-row.header-toolbar-row.mat-toolbar-row {
+  width: 100%;
+  height: 100%;
+}
+
+mat-icon.mat-icon {
+  font-size: 32px;
+  line-height: 56px;
+  width: 56px;
+  height: 56px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+mat-card.mat-card mat-card-content.mat-card-content div {
+  float: right;
+  /* margin: -26% -7% 0; */
+  /* width: 63%; */
+  margin: -18% -3% 0%;
+  text-align: right;
+}
+
+mat-card>mat-card-content>div section span {
+  display: block;
+}
+
+mat-card-actions.mat-card-actions {
+  margin-top: -13px;
+}
+
+mat-card-actions.mat-card-actions hr {
+  border: 0.4px solid #eee;
+}
+
+mat-card-actions.mat-card-actions div section:nth-child(1) {
+  display: inline-flex;
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-top: -4px
+}
+
+mat-card-actions.mat-card-actions div section:nth-child(1) mat-icon.mat-icon {
+  width: 32px;
+  float: left;
+  font-size: 21px;
+  line-height: 56px;
+  height: 0px;
+  text-align: center;
+  margin: -5px auto;
+}
+
+mat-card-actions.mat-card-actions div section:nth-child(1) section span:nth-child(1) {
+  display: block;
+  font-size: 10px;
+}
+
+mat-card-actions.mat-card-actions div section:nth-child(1) section span:nth-child(2) {
+  display: block;
+  font-size: 12px;
+}
+
+mat-card-actions.mat-card-actions div section:nth-child(2) {
+  float: left;
+  width: 100%;
+  padding: 0;
+}
+
+mat-card div section:nth-child(1) {
+  padding: 4px;
+  color: #999;
+  font-size: 14px;
+}
+
+mat-card div section:nth-child(2) {
+  margin-top: 9px;
+  padding-right: 4px;
+}
+
+mat-card div section:nth-child(2) span:nth-child(1) {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1.4em;
+  color: #999;
+}
+
+mat-card-actions.mat-card-actions div section:nth-child(2) span:nth-child(1) {
+  color: #1b1b1b;
+}
+
+mat-card-content.mat-card-content section:nth-child(2) span:nth-child(2) {
+  font-weight: 300;
+  font-size: 1.5625rem;
+  line-height: 1.4em;
+  color: #585858;
+  margin-left: -71px;
+}

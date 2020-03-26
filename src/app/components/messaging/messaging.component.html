@@ -1,0 +1,42 @@
+<form [formGroup]="messageForm" (ngSubmit)="sendMessage($event)">
+    <h1 mat-dialog-title>{{data.title}}</h1>
+    <div class="message">
+        <mat-form-field class="messageForm_mat-form-field">
+            <input matInput placeholder="Nome" maxlength="50" formControlName="name">
+            <mat-error class="text-danger"
+                *ngIf="messageForm.get('name')?.errors?.required && (messageForm.get('name').dirty || messageForm.get('name').touched)">
+                <p>Preencha o campo nome</p>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="messageForm_mat-form-field">
+            <input matInput placeholder="Email" maxlength="50" formControlName="email"
+                [ngClass]="{'is-invalid': messageForm.get('email').errors && (messageForm.get('email').dirty || messageForm.get('email').touched)}">
+            <mat-error class="text-danger"
+                *ngIf="messageForm.get('email')?.errors?.required && (messageForm.get('email').dirty || messageForm.get('email').touched)">
+                <p>Preencha o campo email</p>
+            </mat-error>
+            <mat-error class="text-danger"
+                *ngIf="messageForm.get('email')?.errors?.email && (messageForm.get('email').dirty || messageForm.get('email').touched)">
+                <p>Email em formato inválido</p>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="messageForm_mat-form-field">
+            <input matInput placeholder="Assunto" maxlength="50" formControlName="subject">
+            <mat-error class="text-danger"
+                *ngIf="messageForm.get('subject')?.errors?.required && (messageForm.get('subject').dirty || messageForm.get('subject').touched)">
+                <p>Preencha o campo Assunto</p>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="messageForm_mat-form-field">
+            <textarea matInput placeholder="Mensagem" formControlName="message"></textarea>
+            <mat-error class="text-danger"
+            *ngIf="messageForm.get('message')?.errors?.required && (messageForm.get('message').dirty || messageForm.get('message').touched)">
+            <p>Preencha a mensagem</p>
+        </mat-error>
+        </mat-form-field>
+        <button mat-button type="submit" [disabled]="!messageForm.valid">Enviar</button>
+    </div>
+</form>

@@ -1,0 +1,11 @@
+{
+    "COMPANY": {
+        "NAME": "VARITUS BRASIL",
+        "PRODUCT": "XML ESPIAO"
+    },
+    "LOGIN": {
+        "USER": "Usuário",
+        "PASSWORD": "Senha",
+        "LOSTPASSWORD": "Esqueceu a Senha ?"
+    }
+}

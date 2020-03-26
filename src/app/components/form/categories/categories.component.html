@@ -1,0 +1,29 @@
+<!-- Explore by events -->
+<!-- <button (click)="scroll(target)">Click to scroll</button> -->
+<div #target>
+    <section>
+        <section class="section-title">
+            <h3>{{ 'PORTAL.HOME.EVENTSBYCATEGORY' | translate }}</h3>
+            <section class="cursor-categories">
+                <button mat-mini-fab (click)="nextLeftScroll()">
+                    <mat-icon>navigate_before</mat-icon>
+                </button>
+                <button mat-mini-fab (click)="nextRightScroll()">
+                    <mat-icon>navigate_next</mat-icon>
+                </button>
+            </section>
+        </section>
+        <section class="out-section-categories">
+            <section class="section-categories">
+                <ng-template ngFor let-category [ngForOf]="categories">
+                    <section class="btn-categorie">
+                        <button mat-fab class="icon-category" (click)="scroll(target,category)">
+                            <mat-icon>{{ category.icon }}</mat-icon>
+                        </button>
+                        <span class="section-categories-title">{{ category.title }}</span>
+                    </section>
+                </ng-template>
+            </section>
+        </section>
+    </section>
+</div>

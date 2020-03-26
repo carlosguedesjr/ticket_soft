@@ -1,0 +1,5 @@
+<app-speed-dial [moduleList]="documentsList" (handleChangeModule)="changeModule($event)"></app-speed-dial>
+
+<app-medium-row module="{{selectedModule}}"></app-medium-row>
+<app-mini-row [data]="moduleData" module="{{selectedModule}}"></app-mini-row>
+<app-map-row [countryData]="countryData" module="{{selectedModule}}"></app-map-row>

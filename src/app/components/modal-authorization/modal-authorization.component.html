@@ -1,0 +1,22 @@
+<div class="secImage" mat-dialog-title>
+  <div>
+    <img class="user-img" src="https://demos.creative-tim.com/material-dashboard-pro-angular2/assets/img/faces/avatar.jpg" />
+  </div>
+</div>
+<div class="secInformation">
+  <mat-dialog-content>
+    <p>MARIA CLEMENTINA</p>
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>{{ 'LOGIN.PASSWORD' | translate }}</mat-label>
+        <mat-icon matPrefix>lock_outline</mat-icon>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <mat-icon matSuffix class="visible" (click)="hide = !hide" matTooltip="{{ (hide ? 'LOGIN.PASSVISIBLE' : 'LOGIN.PASSHIDDEN') | translate }}">{{ hide ? 'visibility' : 'visibility_off' }}</mat-icon>
+        <mat-hint class="hint-password"></mat-hint>
+      </mat-form-field>
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="mat-raised-button mat-primary" (click)="save()">{{ 'MODAL-AUTHORIZATION.AUTHENTICATE' | translate}}</button>
+  </mat-dialog-actions>
+</div>

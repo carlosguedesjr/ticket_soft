@@ -1,0 +1,123 @@
+h1 {
+    font-weight: normal;
+}
+
+.board-filters-date {
+    width: 79%;
+    float: left;
+}
+
+.filter-line {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 14px 0;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.filter-line .mat-radio-button {
+    margin: 0 4px;
+}
+
+.filter-between-date {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    font-size: 13px;
+    padding: 0 12px;
+}
+
+.filter-between-date span {
+    margin: 19px 6px 0 0;
+}
+
+.filter-between-date .between {
+    margin: 19px 6px 0 6px;
+}
+
+.accept {
+    display: table;
+    text-align: center;
+    padding: 8px 0 0 15px;
+    border-left: 0.5px solid #ccc;
+    height: 90px;
+}
+
+.accept div {
+    width: 100%;
+    font-size: 12.5px;
+    text-align: center;
+    color: #212529;
+    margin-bottom: .5rem;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1280px) {
+    .board-filters-date {
+        width: 100%;
+        float: left;
+    }
+
+    .filter-between-date {
+        width: 100%;
+        padding: 0;
+        font-size: 13px;
+        justify-content: space-between;
+    }
+
+    .filter-between-date div {
+        width: 50%;
+    }
+
+    .filter-between-date div mat-form-field {
+        width: 80%;
+    }
+
+    .second-date {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .accept {
+        border-left: none;
+        width: 100%;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 622px) {
+
+    .accept {
+        margin: 0;
+        border-left: none;
+    }
+
+    .filter-between-date {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filter-between-date div {
+        width: 100%;
+    }
+
+    .filter-between-date div mat-form-field {
+        width: 100%;
+    }
+
+    .select-period {
+        padding: 15px 0;
+        margin: 0 0 0 9px;
+    }
+
+    .filter-line-elements {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .filter-line-radio {
+        margin: 2px 0;
+    }
+}

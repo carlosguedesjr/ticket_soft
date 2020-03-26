@@ -1,0 +1,13 @@
+.icons-menu {
+  vertical-align: bottom;
+}
+
+.loginLink:hover {
+  cursor: pointer;
+  color: #ff6f00;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+}

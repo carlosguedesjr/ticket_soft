@@ -1,0 +1,39 @@
+<form [formGroup]="newsletterForm" >
+    <section class="newsletter-signature">
+        <section class="newsletter-content">
+            <section class="newsletter-form">
+                <section class="newsletter-title">
+                    <h2>{{ 'PORTAL.NEWSLETTER.TITLE' | translate }}</h2>
+                    <h3>{{ 'PORTAL.NEWSLETTER.SUBTITLE' | translate }}</h3>
+                </section>
+                <section class="newsletter-fields">
+                    <mat-form-field class="name">
+                        <input matInput placeholder="{{ 'PORTAL.NEWSLETTER.NAME' | translate }}" formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field class="mail">
+                        <input matInput placeholder="{{ 'PORTAL.NEWSLETTER.EMAIL' | translate }}" formControlName="email">
+                    </mat-form-field>
+                    <mat-form-field class="select-state">
+                        <mat-select placeholder="{{ 'PORTAL.NEWSLETTER.STATE' | translate }}" formControlName="state">
+                            <ng-template ngFor let-state [ngForOf]="states" >
+                                <mat-option [value]="state.sigla" title="{{state.nome}}">{{ state.sigla }}
+                                </mat-option>
+                            </ng-template>
+                        </mat-select>
+                    </mat-form-field>
+                </section>
+                <section class="newsletter-submit">
+                    <button mat-flat-button class="btn-newsletter" (click)="openNewsletterTerm()">
+                        <mat-icon>mail_outline</mat-icon> {{ 'PORTAL.NEWSLETTER.SIGNUP' | translate }}
+                    </button>
+                </section>
+            </section>
+            <section class="newsletter-image" #image>
+                <ng-template ngFor let-image let-i=index [ngForOf]="images">
+                    <img [ngClass]="i === 0 ? 'newsletter-banner active' : 'newsletter-banner'" src="{{ image.img }}"
+                        alt="{{ image.alt }}">
+                </ng-template>
+            </section>
+        </section>
+    </section>
+</form>

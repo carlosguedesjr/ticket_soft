@@ -1,0 +1,96 @@
+<div class="sidebar" id="sidebar">
+
+  <!-- LOGO -->
+  <div class="logo">
+    <img src="../../../assets/images/simbol-varitus.png">
+    <img src="../../../assets/images/simbol-name-varitus.png">
+  </div>
+  <hr>
+  <!-- MENU -->
+  <div class="menu">
+    <!-- USER -->
+    <div class="user">
+      <img src="{{ user }}">
+      <span>{{ userName }}</span>
+    </div>
+    <hr>
+    <!-- MENU LIST -->
+    <div class="nav">
+      <ul #nav>
+        <ng-template ngFor let-module [ngForOf]="JSON">
+          <ng-template [ngIf]="!module.submodule">
+            <li routerLinkActive="active">
+              <a [routerLink]="module.route" (click)="eventClick($event)" >
+                <mat-icon matPrefix class="moduleIcon">{{ module.icon }}</mat-icon>
+                <span>{{ module.name }}</span>
+              </a>
+              <ul *ngIf="minisidenav" >
+                <li class="mini-sidenav-module">
+                  <a>
+                    <span>{{ module.name }}</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ng-template>
+          <ng-template [ngIf]="module.submodule">
+            <li class="sub" routerLinkActive="active">
+              <a data-toggle="collapse" href="#" (click)="eventClick($event)" aria-expanded="false">
+                <mat-icon matPrefix class="moduleIcon">{{ module.icon }}</mat-icon>
+                <span>{{ module.name }}</span>
+                <mat-icon matSufix class="arrow">arrow_drop_down</mat-icon>
+              </a>
+              <ul>
+                <ng-template ngFor let-submodule [ngForOf]="module.submodule">
+                  <ng-template [ngIf]="!submodule.submodule">
+                    <li routerLinkActive="active">
+                      <a [routerLink]="submodule.route" (click)="eventClick($event)" >
+                        <mat-icon matPrefix class="moduleIcon">{{ submodule.icon }}</mat-icon>
+                        <span>{{ submodule.name }}</span>
+                      </a>
+                      <ul *ngIf="minisidenav" >
+                        <li class="mini-sidenav-module">
+                          <a>
+                            <span>{{ submodule.name }}</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ng-template>
+                  <ng-template [ngIf]="submodule.submodule">
+                    <li class="two-sub" routerLinkActive="active">
+                      <a data-toggle="collapse" href="#" (click)="eventClick($event)" aria-expanded="false">
+                        <mat-icon matPrefix class="moduleIcon">{{ submodule.icon }}</mat-icon>
+                        <span>{{ submodule.name }}</span>
+                        <mat-icon matSufix class="arrow">arrow_drop_down</mat-icon>
+                      </a>
+                      <ul>
+                        <ng-template ngFor let-submodule [ngForOf]="submodule.submodule">
+                          <li routerLinkActive="active">
+                            <a [routerLink]="submodule.route" (click)="eventClick($event)" >
+                              <mat-icon matPrefix class="moduleIcon">{{ submodule.icon }}</mat-icon>
+                              <span>{{ submodule.name }}</span>
+                            </a>
+                            <ul *ngIf="minisidenav" >
+                              <li class="mini-sidenav-module">
+                                <a>
+                                  <span>{{ submodule.name }}</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ng-template>
+                      </ul>
+                  </li>
+                  </ng-template>
+                </ng-template>
+              </ul>
+          </ng-template>
+        </ng-template>
+      </ul>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,21 @@
+.material-icons {
+    position: absolute;
+    right: -2px;
+    top: 17px;
+}
+
+.menuOpener {
+    position: fixed;
+    right: -74px;
+    top: 92px;
+    width: 18%;
+}
+
+.moduleItem {
+    width: 10vh;
+    text-align: center;
+}
+
+.moduleContainer {
+    display: flex;
+}

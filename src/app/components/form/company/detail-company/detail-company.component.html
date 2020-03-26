@@ -1,0 +1,46 @@
+<form [formGroup]="companyForm" (ngSubmit)="saveForm()">
+    <section class="formTop">
+        <section fxLayout="column">
+            <div fxLayout.lt-md="column" fxLayoutGap="40px">
+                <mat-form-field fxFlex="33%" fxFill>
+                    <mat-label>Tipos de Empresas</mat-label>
+                    <mat-select formControlName="type">
+                        <mat-option *ngFor="let item of typesCompany" [value]="item?.id">
+                            {{ item.description }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </section>
+
+        <section fxLayout="column">
+            <div fxLayout.lt-md="column" fxLayoutGap="40px">
+                <mat-form-field fxFlex="33%" fxFill>
+                    <input matInput formControlName="company_name" placeholder="Razão Social" maxlength="50">
+                </mat-form-field>
+                <mat-form-field fxFlex="33%" fxFill>
+                    <input matInput formControlName="fantasy_name" placeholder="Nome Fantasia" maxlength="50">
+                </mat-form-field>
+                <mat-form-field fxFlex="33%" fxFill>
+                    <input matInput formControlName="document" placeholder="Cnpj" mask="00.000.000/0000-00" maxlength="18" (blur)="getProfileReceita($event)"> 
+                </mat-form-field>
+            </div>
+            <div fxLayout.lt-md="column" fxLayoutGap="40px">
+                <mat-form-field fxFlex="33%" fxFill>
+                    <input matInput formControlName="cep_registration" placeholder="Cep" mask="00.000-000" (blur)="getCep($event)" maxlength="10">
+                </mat-form-field>
+                <mat-form-field fxFlex="33%" fxFill>
+                    <input matInput formControlName="municipal_registration" placeholder="Município de instalação" maxlength="50">
+                </mat-form-field>
+                <mat-form-field fxFlex="33%" fxFill>
+                    <input matInput formControlName="state_registration" placeholder="Unidade federativa" maxlength="2">
+                </mat-form-field>
+            </div>
+            <br>
+            <label style="color: red;"><strong>## FALTA O CAMPO CEP</strong></label>
+
+            <button mat-button type="submit" *ngIf="!companyForm.valid" class="btnSalvar">  <mat-icon style="color: #f8f8f8;">done</mat-icon> Salvar</button>
+            <!-- <button mat-button type="submit" class="btnSalvar">Voltar</button>   -->
+        </section>
+    </section>
+</form>

@@ -1,0 +1,27 @@
+<footer class="footer">
+    <section class="content-footer">
+        <ng-template ngFor let-block [ngForOf]="blocks">
+            <section>
+                <h3>{{ block.title }}</h3>
+                <section>
+                    <ul>
+                        <ng-template ngFor let-item [ngForOf]="block.list">
+                            <li><a href="{{ item.link }}">{{ item.text | translate }}</a></li>
+                        </ng-template>
+                    </ul>
+                </section>
+            </section>
+        </ng-template>
+        <section>
+            <h3>CONECTE-SE</h3>
+            <section class="social">
+                <ng-template ngFor let-item [ngForOf]="socialNetworks">
+                    <a target="_blank" href="{{ item.link }}"><i class="fa fa-lg fa {{item.ico}}"></i></a>
+                </ng-template>
+            </section>
+        </section>
+    </section>
+    <section class="content-copyright">
+        © COPYRIGHT 2019 - Todos direitos reservados a EPTV TICKETS!
+    </section>
+</footer>

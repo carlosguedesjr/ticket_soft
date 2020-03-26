@@ -1,0 +1,15 @@
+<app-shopping-cart></app-shopping-cart>
+<div class="container">
+    <!--Navbar -->
+    <div class="header">
+        <app-navbar (activeRouter)="getActiveRouter($event)"></app-navbar>
+        <div *ngIf="hideComponent()" style="height:300px"></div>
+    </div>
+    <!-- Body -->
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<app-newsletter *ngIf="checkActiveFullWidth('newsletter')"></app-newsletter>
+<app-support *ngIf="checkActiveFullWidth('support')"></app-support>
+<app-footer></app-footer>

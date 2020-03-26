@@ -1,0 +1,7 @@
+<section class="login-container">
+    <a class="loginLink" (document:click)="toggleLoginPanel($event)">
+        <mat-icon matPrefix class="icons-menu clickable-icon">face</mat-icon>
+        {{ 'LOGIN.BTNLOGIN' | translate }}
+    </a>
+</section>
+<app-popover-login [@loginPopupState]='state'></app-popover-login>

@@ -1,0 +1,246 @@
+<form>
+    <section [hidden]="hideLoginCostumer">
+        <section class="checkout-title">
+            <mat-icon>face</mat-icon>
+            <section>{{ 'SHOPPING-CART.IDENTIFICATION' | translate }}</section>
+        </section>
+        <section class="user-identification">
+            <section class="not-costumer" [ngClass]="{'full_width': !noAccount}">
+                <section>
+                    <section class="sec-validate-new-costumer" *ngIf="noAccount">
+
+                        <h1>{{ 'PROFILE.USER.CREATE-ACCOUNT' | translate }}</h1>
+
+                        <form class="validate-new-costumer" [formGroup]="createAccount"
+                            (ngSubmit)="continueToSignUp(createAccount)">
+                            <mat-form-field class="mail-new-costumer">
+                                <input matInput placeholder="{{ 'PROFILE.USER.EMAIL' | translate }}"
+                                    formControlName="newEmailCostumer">
+                                <mat-icon matPrefix>mail_outline</mat-icon>
+                                <mat-error
+                                    *ngIf="newEmailCostumer.hasError('email') && !newEmailCostumer.hasError('required')">
+                                    {{ 'INVALID.EMAIL' | translate}}
+                                </mat-error>
+                                <mat-error *ngIf="newEmailCostumer.hasError('required')">
+                                    {{ 'REQUIRED.EMAIL' | translate}}
+                                </mat-error>
+                                <mat-hint *ngIf="emailAlreadyExists">
+                                    {{ 'ERRORS.EMAIL-EXISTS' | translate}}
+                                </mat-hint>
+                            </mat-form-field>
+                            <section class="container-signup-btn">
+                                <button class="signup-btn enabled" type="submit" *ngIf="isLoadingSignup">
+                                    <app-loading-spinner></app-loading-spinner>
+                                </button>
+                                <button class="signup-btn" type="submit"
+                                    [ngClass]="createAccount.valid ? 'enabled' : 'disabled'"
+                                    *ngIf="!isLoadingSignup">{{ 'ACTIONS.CONTINUE' | translate }}</button>
+                            </section>
+                        </form>
+
+                    </section>
+
+                    <!-- FORM DE CADASTRO -->
+                    <section class="register-user" *ngIf="!noAccount && !forgotPasswordPage && !recoverPasswordWindow">
+                        <div class="register-user--cotainer_arrow-icon">
+                            <mat-icon class="arrowBack-icon bounce" (click)="returnStepTwoFirstPage()" matPrefix>
+                                arrow_back</mat-icon>
+                        </div>
+                        <div class="register-user__container">
+                            <div class="register-user__container--inner">
+
+                                <form [formGroup]="registerUserForm" (ngSubmit)="registerUser()"
+                                    class="register-user__form">
+                                    <div class="register-user__inputs-first-row">
+                                        <mat-form-field class="register-user--name">
+                                            <input matInput placeholder="{{ 'PROFILE.USER.NAME' | translate }}"
+                                                formControlName="name">
+                                            <mat-error>{{ 'ERRORS.NAME-ERROR' | translate }}</mat-error>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="register-user--second-name">
+                                            <input matInput placeholder="{{ 'PROFILE.USER.LAST-NAME' | translate }}"
+                                                formControlName="secondName">
+                                            <mat-error>{{ 'ERRORS.SECONDNAME-ERROR' | translate }}</mat-error>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="register-user--mail">
+                                            <input type="email" matInput
+                                                placeholder="{{ 'PROFILE.USER.EMAIL' | translate }}"
+                                                formControlName="mail">
+                                            <mat-error>{{ 'ERRORS.MAIL-ERROR' | translate }}</mat-error>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="register-user--inputs-second-row">
+                                        <mat-form-field class="register-user__CPF">
+                                            <input #document matInput
+                                                placeholder="{{ 'PROFILE.USER.DOCUMENT' | translate }}"
+                                                formControlName="CPF">
+                                            <mat-error>{{ 'ERRORS.CPF-ERROR' | translate }}</mat-error>
+                                            <mat-hint>{{ document.value.length }} / 14</mat-hint>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="register-user__gender">
+                                            <mat-label>{{ 'GENDER.TITLE' | translate }}</mat-label>
+                                            <mat-select formControlName="gender">
+                                                <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                                                    {{ gender.text | translate }}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="register-user__inputs-third-row">
+                                        <mat-form-field class="register-user__date">
+                                            <input matInput [matDatepicker]="datebirtth"
+                                                placeholder="{{ 'PROFILE.USER.DATE-OF-BIRTH' | translate }}"
+                                                formControlName="birthDate">
+                                            <mat-datepicker-toggle matSuffix [for]="datebirtth"></mat-datepicker-toggle>
+                                            <mat-datepicker #datebirtth></mat-datepicker>
+                                            <mat-error>{{ 'LOGIN.AGE-ALERT' | translate }}</mat-error>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="register-user__inputs-fourth-row">
+                                        <mat-form-field class="register-user__password">
+                                            <input #viewPassword type="password" matInput
+                                                placeholder="{{ 'PROFILE.USER.NEW-PASSWORD' | translate }}"
+                                                formControlName="password">
+                                            <mat-icon class="show-password" matSuffix (click)="showPassword($event, 1)">
+                                                visibility_off</mat-icon>
+                                            <mat-error>{{ 'LOGIN.PASSWORD-ERROR' | translate }}</mat-error>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="register-user__confirm-password">
+                                            <input #viewConfirmPassword type="password" matInput
+                                                placeholder="{{ 'PROFILE.USER.CONFIRM-PASSWORD' | translate }}"
+                                                maxlength="15" formControlName="confirmedPassword">
+                                            <mat-icon class="show-password" matSuffix (click)="showPassword($event, 2)">
+                                                visibility_off</mat-icon>
+                                            <mat-error>{{ 'LOGIN.PASSWORD-ERROR' | translate }}</mat-error>
+                                            <mat-hint class="errorCard" *ngIf="registerUserForm.errors">
+                                                {{ 'LOGIN.PASSWORD-DONT-MATCH' | translate }}</mat-hint>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="register-user__container--button">
+                                        <button class="register-user__button enabled" type="submit"
+                                            *ngIf="isLoadingRegister">
+                                            <app-loading-spinner></app-loading-spinner>
+                                        </button>
+                                        <button class="register-user__button" type="submit"
+                                            [ngClass]="registerUserForm.valid ? 'enabled' : 'disabled'"
+                                            *ngIf="!isLoadingRegister">{{ 'ACTIONS.SIGNUP' | translate }}</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </section>
+            </section>
+
+            <!-- Seção de Mensagem de Confirmação após enviar e-mail de recuperação de senha -->
+            <section class="confirm-reset__container" *ngIf="recoverPasswordWindow">
+                <div class="confirm-reset__innercontainer">
+                    <span class="confirm-reset__message">
+                        {{ 'LOGIN.INSTRUCTIONS' | translate }}
+                    </span>
+                    <mat-spinner></mat-spinner>
+                </div>
+            </section>
+
+            <!-- Seção de recuperação de senha -->
+            <section class="password__rec_container" *ngIf="forgotPasswordPage">
+                <div class="password__rec_container_inner">
+                    <mat-icon class="arrowBack-icon bounce" (click)="returnStepTwoFirstPage()" matPrefix>arrow_back
+                    </mat-icon>
+                    <span class="password__rec_span">{{ 'LOGIN.RECOVER-INSTRUCTIONS' | translate }}</span>
+
+                    <form [formGroup]="recoveryPasswordForm" (ngSubmit)="passwordRecovery(recoveryPasswordForm)"
+                        class="recoveryForm">
+                        <mat-form-field class="login-page--recovery-password">
+                            <input matInput placeholder="{{ 'LOGIN.DOCUMENT-EMAIL' | translate }}"
+                                formControlName="emailRecovery">
+                            <mat-icon matPrefix>mail_outline</mat-icon>
+                            <mat-error>{{ 'LOGIN.MAIL-ERROR' | translate }}</mat-error>
+                            <mat-hint class="errorCard" *ngIf="emailError">{{ emailError }}</mat-hint>
+                            <mat-hint class="errorCard" *ngIf="errorGettingEmail">{{ errorRequestResetPass }}</mat-hint>
+                        </mat-form-field>
+                        <button class="password__rec_button enabled" type="submit" *ngIf="isLoading">
+                            <app-loading-spinner></app-loading-spinner>
+                        </button>
+                        <button class="password__rec_button" type="submit"
+                            [ngClass]="recoveryPasswordForm.valid ? 'enabled' : 'disabled'"
+                            *ngIf="!isLoading">{{ 'LOGIN.RECOVER-PASSWORD' | translate }}</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="divider" *ngIf="noAccount"></section>
+            <section class="costumer" *ngIf="noAccount">
+                <h1>{{ 'PROFILE.USER.ALREADY-COSTUMER' | translate }}</h1>
+                <section>
+                    <section>
+                        <form [formGroup]="loginForm" class="login-costumer" (ngSubmit)="login(loginForm)">
+                            <mat-form-field>
+                                <input matInput placeholder="{{ 'PROFILE.USER.EMAIL' | translate }}"
+                                    formControlName="loginCostumer">
+                                <mat-icon matPrefix>mail_outline</mat-icon>
+                                <mat-error>{{ 'LOGIN.MAIL-AND-CPF-ERROR' | translate }}</mat-error>
+                                <mat-hint class="errorCard" *ngIf="emailError">{{ emailError }}</mat-hint>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input #passwordCostumer type="password" matInput
+                                    placeholder="{{ 'PROFILE.USER.PASSWORD' | translate }}"
+                                    formControlName="loginPassword">
+                                <mat-icon matPrefix>lock_open</mat-icon>
+                                <mat-icon class="show-password" matSuffix (click)="showPassword($event)">visibility_off
+                                </mat-icon>
+                                <mat-error
+                                    *ngIf="!loginForm.get('loginPassword').valid && loginForm.get('loginPassword').touched">
+                                    {{ 'LOGIN.PASSWORD-ERROR' | translate }}</mat-error>
+                                <mat-hint class="errorCard" *ngIf="errorPassword">{{ errorPassword }}
+                                    {{ 'LOGIN.RECOVER-MESSAGE' | translate }}</mat-hint>
+                            </mat-form-field>
+                            <section class="container-login-btn">
+                                <button class="btn-login enabled" type="submit" *ngIf="isLoading">
+                                    <app-loading-spinner></app-loading-spinner>
+                                </button>
+                                <button class="btn-login" type="submit"
+                                    [ngClass]="loginForm.valid ? 'enabled' : 'disabled'"
+                                    *ngIf="!isLoading">{{ 'ACTIONS.CONTINUE' | translate }}</button>
+                            </section>
+                            <section class="container-forgot-pass">
+                                <a (click)="callForgotPasswordPage()"
+                                    class="link-forgotten-pass">{{ 'LOGIN.FORGOT-PASSWORD-OR-EMAIL' | translate }}</a>
+                            </section>
+                        </form>
+                    </section>
+                </section>
+
+                <section>
+                    <section class="social-title">
+                        {{ 'SOCIAL-MEDIA.INFO' | translate }}
+                    </section>
+                    <section class="social-buttons">
+                        <span class="facebook" (click)="socialSignIn('facebook')">
+                            <a class="icon-facebook"></a>{{ 'SOCIAL-MEDIA.FACEBOOK' | translate }}
+                        </span>
+                        <span class="google" (click)="socialSignIn('google')">
+                            <a class="icon-google"></a>{{ 'SOCIAL-MEDIA.GOOGLE' | translate }}
+                        </span>
+                    </section>
+                    <section class="info-new-costumer">
+                        {{ 'INFO.NEW-COSTUMER' | translate }}
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+    <section [hidden]="hideNewCostumer" class="create-costumer">
+        <app-profile-costumer-checkout></app-profile-costumer-checkout>
+    </section>
+</form>

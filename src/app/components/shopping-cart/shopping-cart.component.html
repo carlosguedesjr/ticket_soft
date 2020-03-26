@@ -1,0 +1,63 @@
+<section #shoppingCartPanel>
+    <section class="background-close" #backgroundClose></section>
+    <section class="shopping-cart close-cart" #slideShoppingCart>
+        <section class="shopping-cart-content">
+            <section class="shopping-cart-close">
+                <mat-icon (click)="closeSlideCart()" matTooltip="{{ 'PORTAL.CART.CLOSE' | translate }}">close</mat-icon>
+            </section>
+            <section class="shopping-cart-title">
+                <mat-icon>shopping_cart</mat-icon>Meu Carrinho
+            </section>
+            <section class="shopping-cart-itens">
+                <div *ngIf="!cartItens?.length">
+                    <p class="text-center">Seu carrinho está vazio!</p>
+                </div>
+                <ng-template ngFor let-item [ngForOf]="cartItens">
+                    <section class="shopping-cart-event">
+                        <section class="cart-item-event">
+                            <img src="{{ item.thumb }}" />
+                            <div> {{ item. event }}</div>
+                        </section>
+                        <section class="cart-info-event">
+                            <div class="event-date">
+                                <span>
+                                    <mat-icon>event</mat-icon> {{ item.date }}
+                                </span>
+                                <span class="icon-clock"> {{ item.hour }}</span>
+                            </div>
+                            <div class="event-location"> {{ item.location }}</div>
+                        </section>
+                        <section class="shopping-cart-quantity">
+                            <span class="text-quantity">{{ 'PORTAL.CART.QUANTITY' | translate }}</span>
+                            <section>
+                                <section class="shopping-cart-item-remove">
+                                    <mat-icon matTooltip="{{ 'PORTAL.CART.REMOVEITEM' | translate }}"
+                                        (click)='clearEvent(item)'>
+                                        remove_shopping_cart
+                                    </mat-icon>
+                                </section>
+                            </section>
+                            <section>
+                                <span class="btn-quantity" (click)='removeItem(item,item.invites.length)'>
+                                    <mat-icon>remove</mat-icon>
+                                </span>
+                                <input class="input-quantity" type="text" readonly value="{{item.invites.length}}" />
+                                <span class="btn-quantity" (click)='addItem(item)'>
+                                    <mat-icon>add</mat-icon>
+                                </span>
+                            </section>
+                        </section>
+                        <mat-error *ngIf="item.max_invite == item.invites.length">
+                            <span>{{ 'PORTAL.CART.NUMBERMAXINVITE' | translate }}</span>
+                        </mat-error>
+                    </section>
+                </ng-template>
+            </section>
+        </section>
+        <section class="shopping-cart-complete-order" *ngIf="cartItens?.length">
+            <button mat-raised-button (click)='finalizarPedido(cartItens)' [routerLink]="['/checkout']">
+                <mat-icon>payment</mat-icon><span>{{ 'PORTAL.CART.COMPLETEORDER' | translate }}</span>
+            </button>
+        </section>
+    </section>
+</section>

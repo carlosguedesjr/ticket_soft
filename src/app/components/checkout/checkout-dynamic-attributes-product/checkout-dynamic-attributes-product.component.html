@@ -1,0 +1,101 @@
+<ng-template [ngIf]="attributes['controls'].size">
+    <mat-form-field class="container-size">
+        <mat-label>Tamanho</mat-label>
+        <mat-select [(ngModel)]="typeSelected" (selectionChange)="emitValueSelected($event.value)">
+            <ng-template ngFor let-sizeIndex=index let-size [ngForOf]="attributes.get('size').controls">
+                <div [formGroup]="size">
+                    <mat-option [value]="size.get('type').value">{{ size.get('type').value }}</mat-option>
+                </div>
+            </ng-template>
+        </mat-select>
+    </mat-form-field>
+</ng-template>
+
+<ng-template [ngIf]="attributes['controls'].voltage">
+    <mat-form-field class="container-size">
+        <mat-label>Voltagem</mat-label>
+        <mat-select [(ngModel)]="typeSelected" (selectionChange)="emitValueSelected($event.value)">
+            <ng-template ngFor let-voltageIndex=index let-voltage [ngForOf]="attributes.get('voltage').controls">
+                <div [formGroup]="size">
+                    <mat-option [value]="voltage.get('type').value">{{ voltage.get('type').value }}</mat-option>
+                </div>
+            </ng-template>
+        </mat-select>
+    </mat-form-field>
+</ng-template>
+
+<ng-template [ngIf]="attributes['controls'].brand">
+    <mat-form-field class="container-size">
+        <mat-label>Marca</mat-label>
+        <mat-select [(ngModel)]="typeSelected" (selectionChange)="emitValueSelected($event.value)">
+            <ng-template ngFor let-brandIndex=index let-brand [ngForOf]="attributes.get('brand').controls">
+                <div [formGroup]="brand">
+                    <mat-option [value]="brand.get('type').value">{{ brand.get('type').value }}</mat-option>
+                </div>
+            </ng-template>
+        </mat-select>
+    </mat-form-field>
+</ng-template>
+
+<ng-template [ngIf]="attributes['controls'].model">
+    <mat-form-field class="container-size">
+        <mat-label>Modelo</mat-label>
+        <mat-select [(ngModel)]="typeSelected" (selectionChange)="emitValueSelected($event.value)">
+            <ng-template ngFor let-modelIndex=index let-model [ngForOf]="attributes.get('model').controls">
+                <div [formGroup]="model">
+                    <mat-option [value]="model.get('type').value">{{ model.get('type').value }}</mat-option>
+                </div>
+            </ng-template>
+        </mat-select>
+    </mat-form-field>
+</ng-template>
+
+<ng-template [ngIf]="attributes['controls'].colors" class="container-colors">
+    <section class="container-color_title">Cores</section>
+    <section>
+        <ul class="list-colors">
+            <ng-template ngFor let-colorIndex=index let-color [ngForOf]="attributes.get('colors').controls">
+                <div [formGroup]="color">
+                    <ng-template [ngIf]="color.get('selected').value === 1">
+                        <li class="colors active">
+                            <ng-template [ngIf]="chechHasArray(color.get('code').value)">
+                                <div (click)="emitValueSelectedColors($event)" matBadge="&#10004;">
+                                    <ng-template ngFor let-codeIndex=index let-code
+                                        [ngForOf]="color.get('code').controls">
+                                        <section [formGroup]="code" [ngClass]="codeIndex == 0 ? 'first-color' : 'second-color'" [style.background-color]="code.get('code').value"></section>
+                                    </ng-template>
+                                    <input type="hidden" [value]="{ id: color.get('id').value, index: colorIndex } | json" />
+                                </div>
+                            </ng-template>
+                            <ng-template [ngIf]="!chechHasArray(color.get('code').value)">
+                                <div [style.background-color]="color.get('code').value" matBadge="&#10004;"
+                                    (click)="emitValueSelectedColors($event)">
+                                    <input type="hidden" [value]="{ id: color.get('id').value, index: colorIndex } | json" />
+                                </div>
+                            </ng-template>
+                        </li>
+                    </ng-template>
+                    <ng-template [ngIf]="color.get('selected').value === 0">
+                        <li class="colors">
+                            <ng-template [ngIf]="chechHasArray(color.get('code').value)">
+                                <div (click)="emitValueSelectedColors($event)" >
+                                    <ng-template ngFor let-codeIndex=index let-code
+                                        [ngForOf]="color.get('code').controls">
+                                        <section [formGroup]="code" [ngClass]="codeIndex == 0 ? 'first-color' : 'second-color'" [style.background-color]="code.get('code').value"></section>
+                                    </ng-template>
+                                    <input type="hidden" [value]="{ id: color.get('id').value, index: colorIndex } | json" />
+                                </div>
+                            </ng-template>
+                            <ng-template [ngIf]="!chechHasArray(color.get('code').value)">
+                                <div [style.background-color]="color.get('code').value"
+                                    (click)="emitValueSelectedColors($event)">
+                                    <input type="hidden" [value]="{ id: color.get('id').value, index: colorIndex } | json" />
+                                </div>
+                            </ng-template>
+                        </li>
+                    </ng-template>
+                </div>
+            </ng-template>
+        </ul>
+    </section>
+</ng-template>

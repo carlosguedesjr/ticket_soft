@@ -1,0 +1,238 @@
+.icon-event {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.image-header {
+    margin: 0;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.card2 {
+    background: #fafafa;
+    border-radius: 5px;
+}
+
+.icon-event_section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.card1 {
+    flex-grow: 0.5;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1px;
+    margin-bottom: 8px;
+}
+
+.organizer {
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    margin-left: 1px;
+}
+
+.btn-subscription {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    border-radius: 26px;
+    border: none;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.btn-subscription.yellowBtn {
+    background-color: #ffbe00;
+    color: white;
+}
+
+.btn-subscription.grayBtn {
+    background-color: #bbbbbb;
+    color: white;
+}
+
+.event {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.event-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.event-super-inner {
+    width: 80%;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.section-categories-title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 5px;
+}
+
+.sharedEvent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    font-weight: bolder;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid #bbbbbb;
+    background-color: #bbbbbb;
+    position: relative;
+}
+
+.container-icons {
+    display: flex;
+    flex-direction: row;
+}
+
+.back-facebook,
+.back-twitter,
+.back-envelope,
+.back-whats,
+.back-print {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 7px;
+}
+
+.back-facebook {
+    border: 1px solid #3b5999;
+    background-color: #3b5999;
+}
+
+.back-twitter{
+    border: 1px solid #1da1f3;
+    background-color: #1da1f3;
+}
+
+.back-envelope{
+    border: 1px solid #848484;
+    background-color: #848484;
+}
+
+.back-whats{
+    border: 1px solid #4ec247;
+    background-color: #4ec247;
+}
+
+.back-print{
+    border: 1px solid #728a8c;
+    background-color: #728a8c;
+}
+
+.iconFacebook {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+}
+
+.iconTwitter {
+    font-size: 22px;
+    color: white;
+}
+
+.iconEnvelope {
+    font-size: 22px;
+    color: white;
+
+}
+
+.iconWhatsapp {
+    font-size: 22px;
+    color: white;
+
+}
+
+.iconPrint {
+    font-size: 22px;
+    color: white;
+
+}
+
+.order {
+    font-size: 20px;
+}
+
+.itensOrganizer {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    color: #d48c52;
+}
+
+.talkOrganizer {
+    font-size: 18px;
+    color: #d48c52;
+    margin-top: 10px;
+}
+
+.linksOrganizer {
+    color: #fca45d;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+.grow:hover {
+    animation: moveIcon 0.5s;
+}
+
+@keyframes moveIcon {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-3px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

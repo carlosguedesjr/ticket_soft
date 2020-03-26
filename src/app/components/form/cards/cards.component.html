@@ -1,0 +1,59 @@
+<section class="section-pagination">
+    <mat-paginator [length]="pageLength" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+</section>
+<section class="centered">
+    <section class="section-cards">
+        <ng-template ngFor let-event [ngForOf]="events">
+            <mat-card class="card">
+                <section>
+                    <div *ngIf="!pastEvents">
+                        <div class="event-hover" *ngIf="!event.sold_off">
+                            <span class="icons-card fav-event" matTooltip="{{ 'PORTAL.CARDS.FAVORITE' | translate }}"
+                                (click)="favEvent(event)" *ngIf="login">
+                                <mat-icon matPrefix>{{event.favorite == true ? 'favorite' : 'favorite_border'}}
+                                </mat-icon>
+                            </span>
+                            <span class="icons-card share-event" matTooltip="{{ 'PORTAL.CARDS.SHARE' | translate }}"
+                                (click)="shareEvent(event.reference)">
+                                <mat-icon matPrefix>share</mat-icon>
+                            </span>
+                            <span class="icons-card cart-event" matTooltip="{{ 'PORTAL.CARDS.CART' | translate }}"
+                                (click)='addEvent(event)'>
+                                <mat-icon matPrefix>add_shopping_cart</mat-icon>
+                            </span>
+                        </div>
+                    </div>
+                    <picture class="thumbnail">
+                        <img src="{{ event.thumb }}" alt="{{ event.title }}">
+                    </picture>
+                    <div class="event-soldoff" *ngIf="event.sold_off">
+                        {{'EVENTS.SOLDOFF' | translate}}
+                    </div>
+                </section>
+                <mat-card-content class="about-event" (click)="moreInfo(event.url)">
+                    <section class="event-card-data">
+                        {{event.date}} {{event.hour}}
+                    </section>
+                    <section class="event-name">
+                        {{ event.title }}
+                    </section>
+                    <section class="event-subtitle">
+                        {{ event.subtitle }}
+                    </section>
+                    <section class="event-location event-card">
+                        <span>{{ event.location }}</span>
+                    </section>
+                    <section class="event-text">
+                        {{ event.text }}
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam unde voluptatum possimus
+                        perspiciatis? Esse eum provident beatae ipsum, deleniti cumque molestias commodi dignissimos
+                        voluptates, qui voluptas fuga veniam eius suscipit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere officia quasi quos impedit error
+                        maxime nihil rem est aut deserunt minus quisquam, corporis, totam fugit distinctio numquam
+                        voluptatem id harum?
+                    </section>
+                </mat-card-content>
+            </mat-card>
+        </ng-template>
+    </section>
+</section>

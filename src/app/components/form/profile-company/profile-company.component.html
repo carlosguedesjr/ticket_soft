@@ -1,0 +1,26 @@
+<div>
+    <section>
+      <p>{{ 'PROFILE.COMPANY-DATA' | translate }}</p>
+      <section fxLayout="column">
+        <mat-form-field fxFlex="100%">
+          <input matInput placeholder="{{ 'PROFILE.COMPANY.SOCIAL-NAME' | translate }}" value="">
+        </mat-form-field>
+        <div fxLayout.lt-md="column" fxLayoutGap="20px">
+          <mat-form-field fxFlex="50%" fxFill>
+              <input matInput placeholder="{{ 'PROFILE.COMPANY.FANTASY-NAME' | translate }}" value="">
+          </mat-form-field>
+          <mat-form-field fxFlex="50%" fxFill>
+              <input matInput placeholder="{{ 'PROFILE.COMPANY.EMAIL' | translate }}" value="">
+          </mat-form-field>
+        </div>
+      </section>
+    </section>
+    <section>
+     <app-address></app-address>
+    </section>
+  </div>
+  <mat-card-actions>
+   <app-button (click)="save()" type="mat-raised-button" class="" title="{{ 'ACTIONS.SAVE' | translate }}"     color="primary"></app-button>
+  </mat-card-actions>
+  
+  

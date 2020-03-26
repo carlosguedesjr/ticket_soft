@@ -1,0 +1,57 @@
+.mapdiv {
+  height: 70vh;
+}
+
+.mapWrapper {
+  margin-top: 2%;
+}
+
+mat-toolbar {
+  color: white;
+  position: absolute;
+  width: 63px;
+  height: 65px;
+  z-index: 1;
+  margin-left: 11px;
+  border-radius: 3px;
+  width: 70px;
+  height: 70px;
+}
+
+mat-toolbar-row.header-toolbar-row.mat-toolbar-row {
+  width: 100%;
+  height: 100%;
+}
+
+.blue-toolbar {
+  background: linear-gradient(60deg, #26c6da, #00acc1);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(0, 188, 212, .5);
+}
+
+mat-icon.mat-icon {
+  font-size: 32px;
+  line-height: 56px;
+  width: 56px;
+  height: 56px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+mat-card {
+  margin-top: 20px;
+  padding-top: 63px;
+  border-radius: 5px;
+  display: grid;
+}
+
+mat-card-content {
+  margin-bottom: 0;
+}
+
+mat-card-content.mat-card-content>div:nth-child(1) {
+  float: left;
+  margin: -44px 0 28px 73px;
+  color: #a0a0a0;
+  font-size: 2.2vh;
+  text-align: left;
+}

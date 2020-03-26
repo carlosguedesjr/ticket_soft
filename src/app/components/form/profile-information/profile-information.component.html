@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row (click)="image.click()">
+    <img class="profile-img" [src]="imageProfile" />
+    <section class="hover-cicle">
+      <mat-icon>photo_camera</mat-icon>
+      <span>{{ 'PROFILE.ALTER-USER-PHOTO' | translate }}</span>
+    </section>
+  </mat-toolbar-row>
+  <input #image class="hidden" type="file" accept="image/jpeg, image/png" />
+</mat-toolbar>
+<mat-card>
+  <mat-card-content>
+    <section class="office">
+      {{ user.office | uppercase }}
+    </section>
+    <section class="user-name">
+       {{ user.name | uppercase }}
+    </section>
+  </mat-card-content>
+</mat-card>

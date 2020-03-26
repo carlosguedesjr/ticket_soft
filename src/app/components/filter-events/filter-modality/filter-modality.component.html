@@ -1,0 +1,22 @@
+<section>
+    <h1>{{ 'PORTAL.FILTER-EVENTS.CATEGORIES.TITLE' | translate }}</h1>
+    <section class="board-filters-categories" *ngIf="!categoriesFilterOrder">
+        <ul class="list">
+            <ng-template ngFor let-category [ngForOf]="categoriesFilterOrder">
+                <li>
+                    <mat-checkbox class="radio" [value]="category?.type" (click)="setCategory(category)"
+                        [checked]="sessionChecked">
+                        <mat-icon class="matIcon">{{ category?.icon }}</mat-icon>{{ category?.title }}
+                    </mat-checkbox>
+                </li>
+            </ng-template>
+        </ul>
+    </section>
+    <div class="accept">
+        <div>{{ 'PORTAL.FILTER-EVENTS.DATE.TEXT-CONFIRM' | translate }}</div>
+        <button mat-stroked-button matTooltip="{{ 'FILTER-EVENT.CLICK-TO-SEARCH' | translate }}" color="accent"
+            (click)="filterEvents()">
+            <mat-icon>search</mat-icon> {{ 'PORTAL.FILTER-EVENTS.SEARCH' | translate }}
+        </button>
+    </div>
+</section>

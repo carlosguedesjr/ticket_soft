@@ -1,0 +1,30 @@
+<mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step matStepperIcon="shopping_cart" [completed]="statusStepOne">
+        <ng-template matStepLabel>
+            <mat-icon class="step-icon">shopping_cart</mat-icon> {{ 'SHOPPING-CART.CONFIRM-ORDER' | translate }}
+        </ng-template>
+        <app-checkout-step-one (statusStepOne)="toggleStatusStepOne($event)" (stepOneEmitter)="moveStep()"></app-checkout-step-one>
+    </mat-step>
+    <mat-step [completed]="statusStepTwo" [stepControl]="secondFormGroup" [aria-labelledby]="user ? 'disabled_af' : null">
+        <ng-template matStepLabel>
+            <mat-icon class="step-icon">face</mat-icon> {{ 'SHOPPING-CART.IDENTIFICATION' | translate }}
+        </ng-template>
+        <app-checkout-step-two (statusStepTwo)="toggleStatusStepTwo($event)" (stepTwoEmitter)="nextStep(2)"></app-checkout-step-two>
+    </mat-step>
+    <mat-step [completed]="statusStepThree">
+        <ng-template matStepLabel>
+            <mat-icon class="step-icon">local_shipping</mat-icon> {{ 'SHOPPING-CART.DELIVERY' | translate }}
+        </ng-template>
+        <app-checkout-step-three (statusStepThree)="toggleStatusStepThree($event)" (stepThreeEmitter)="nextStep(3)"></app-checkout-step-three>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>
+            <mat-icon class="step-icon">attach_money</mat-icon> {{ 'SHOPPING-CART.PAYMENT' | translate }}
+        </ng-template>
+        <app-checkout-step-four></app-checkout-step-four>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>

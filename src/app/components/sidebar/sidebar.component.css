@@ -1,0 +1,36 @@
+/* SIDEBAR */
+
+.sidebar {
+    background: url('https://demos.creative-tim.com/material-dashboard-pro-angular2/assets/img/sidebar-4.jpg');
+    background-size: cover;
+    background-position: center center;
+    color: aliceblue;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    overflow: hidden;
+}
+
+.sidebar:before,
+.sidebar:after {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    left: 0;
+    top: 0;
+    content: "";
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.sidebar * {
+    position: relative;
+    z-index: 2;
+}
+
+hr {
+    margin: 0 1em;
+    border: 0.4px solid rgba(255, 255, 255, 0.3)
+}

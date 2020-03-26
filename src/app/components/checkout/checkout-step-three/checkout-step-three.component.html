@@ -1,0 +1,93 @@
+<form [formGroup]="formCheckoutDelivery" (ngSubmit)="saveCheckoutDelivery(formCheckoutDelivery)">
+    <section class="checkout-title">
+        <div class="checkout-title_left">
+            <mat-icon>my_location</mat-icon>
+            <section class="checkout-title_title">Endereço de Entrega</section>
+        </div>
+        <label for="add_address">Adicionar Endereço</label>
+        <button name="add_address" id="add_address" type="button" mat-raised-button color="primary" (click)="openDialog()" class="button_add_address">+</button>
+    </section>
+    <mat-radio-group aria-label="Selecione um endereço:" formControlName="radioAddress">
+        <mat-card *ngFor="let address of addresses; let i = index">
+            <section class="container_addresses--outter">
+                <mat-radio-button [value]="i" class="container_addresses--middle">
+                    <div class="container_addresses--inner">
+                        <section class="container_addresses--content">
+                            <div>
+                                <span>{{address?.type}}</span>
+                            </div>
+                            <div>
+                                <span>{{address?.logradouro}}</span> -
+                                <span>{{address?.bairro}}</span>
+                            </div>
+                            <div>
+                                <span>{{address?.pais}}</span> -
+                                <span>{{address?.estado}}</span>
+                            </div>
+                            <div>
+                                <span>{{address?.cidade}}</span> -
+                                <span>{{address?.cep}}</span>
+                            </div>
+                        </section>
+                    </div>
+                </mat-radio-button>
+                <section class="container_addresses--icons">
+                    <a class="container_addresses--icon" (click)="editAddress(address)">
+                        <mat-icon color="primary" class="edit-icon">edit</mat-icon>
+                    </a>
+                    <a (click)="removeAddress(address)">
+                        <mat-icon color="warn" class="delete-icon">delete</mat-icon>
+                    </a>
+                </section>
+            </section>
+        </mat-card>
+    </mat-radio-group>
+    <section class="checkout-title container_options_delivery">
+        <div class="checkout-title_left">
+            <mat-icon>local_shipping</mat-icon>
+            <section class="checkout-title_title">Opções de Entrega</section>
+        </div>
+
+        <div class="container_options_delivery">
+            <h5>Entrega 01 de 01</h5>
+            <p>01 Fogão 5 Bocas Consul CFS5 NAR - Acendimento Automático</p>
+            <p>Vendido e entregue por <span>EPTV Ticket</span></p>
+            <mat-radio-group>
+                <mat-card class="container_options_delivery--mat_card">
+                    <section class="container_options_delivery--mat_card--left">
+                        <mat-radio-button [value]="1">Padrão</mat-radio-button>
+                    </section>
+                    <section class="container_options_delivery--mat_card_inner">
+                        <section>
+                            <span>Entrega em até 2 dias úteis</span>
+                        </section>
+                        <section>
+                            <span class="container_options_delivery--freight_price">Frete Grátis</span>
+                        </section>
+                    </section>
+                </mat-card>
+
+                <mat-card class="container_options_delivery--mat_card">
+                    <section class="container_options_delivery--mat_card--left">
+                        <mat-radio-button [value]="2">Agendada</mat-radio-button>
+                    </section>
+                    <section class="container_options_delivery--mat_card_inner">
+                        <section>
+                            <span>Entrega em até 5 dias úteis</span>
+                        </section>
+                        <section>
+                            <span class="container_options_delivery--freight_price">Frete Grátis</span>
+                        </section>
+                    </section>
+                </mat-card>
+            </mat-radio-group>
+        </div>
+
+        <section class="container_options_delivery--footer">
+            <mat-checkbox>Embalar para Presente</mat-checkbox>
+            <div>
+                <button mat-button color="primary" type="submit">{{ 'ACTIONS.CONTINUE' | translate }}</button>
+            </div>
+        </section>
+    </section>
+</form>

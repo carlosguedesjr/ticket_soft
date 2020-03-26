@@ -1,0 +1,362 @@
+{
+    "PORTAL": {
+        "MENU": {
+            "HOME": "Home",
+            "EVENTS": "Eventos",
+            "CONTACT": "Contato",
+            "LOGIN": "Login"
+        },
+        "HOME": {
+            "FEATUREDEVENTS": "Eventos em destaque",
+            "EVENTSBYCATEGORY": "Eventos por categoria"
+        },
+        "NEWSLETTER": {
+            "TITLE": "O MELHOR CALENDÁRIO DE EVENTOS DO BRASIL",
+            "SUBTITLE": "Cadastre-se e fique por dentro dos eventos que acontecem perto de você!",
+            "NAME": "Nome",
+            "EMAIL": "E-mail",
+            "STATE": "UF",
+            "SIGNUP": "Inscreva-se"
+        },
+        "FOOTER": {
+            "LOGIN": "Login",
+            "SIGNUP": "Cadastre-se",
+            "HELPCENTER": "Central de ajuda",
+            "PURCHASETERMS": "Termos de compra",
+            "CANCELLATIONPOLICY": "Política de cancelamento",
+            "OVERTHEPLATAFORM": "Sobre a plataforma",
+            "REQUESTAQUOTE": "Solicite um orçamento",
+            "SUPPORT": "Suporte",
+            "BLOG": "Blog: Na Correria",
+            "WHOWEARE": "Quem somos",
+            "WORKWITHUS": "Trabalhe conosco",
+            "PRIVACYPOLICY": "Política de privacidade"
+        },
+        "CARDS": {
+            "SHARE": "Compartilhar",
+            "FAVORITE": "Favoritos",
+            "CART": "Adicionar ao carrinho"
+        },
+        "CART": {
+            "CLOSE": "Fechar",
+            "QUANTITY": "Quantidade",
+            "COMPLETEORDER": "Finalizar pedido",
+            "REMOVEITEM": "Remover",
+            "NUMBERMAXINVITE": "Número máximo de convites"
+        },
+        "FILTER-EVENTS": {
+            "TEXT": "Pesquisar evento...",
+            "FILTER-PERIOD": "Por período",
+            "FILTER-LOCALE": "Localidades",
+            "FILTER-CATEGORIES": "Categorias",
+            "SEARCH": "Pesquisar",
+            "CLICK-TO-SEARCH": "Clique para pesquisar!",
+            "DATE": {
+                "TITLE": "Selecione o período",
+                "TEXT-CONFIRM": "Após selecionar a data desejada, confirme sua escolha!",
+                "START": "Data inicial",
+                "END": "Data final"
+            },
+            "CATEGORIES": {
+                "TITLE": "Selecione uma ou mais categoria(s)",
+                "TEXT-CONFIRM": "Selecione uma ou mais categoria(s) e confirme sua escolha!"
+            },
+            "LOCALE": {
+                "TITLE": "Selecione uma cidade e/ou estado",
+                "TEXT-CONFIRM": "Selecione uma cidade e/ou estado, confirme sua escolha!",
+                "STATE": "Estado",
+                "CITY": "Cidade",
+                "SELECT-CITY": "Selecione a cidade",
+                "SELECT-STATE": "Selecione a estado"
+            }
+        }
+    },
+    "ACTIONS": {
+        "CANCEL": "Cancelar",
+        "COMEBACK": "Voltar",
+        "CLOSE": "Fechar",
+        "EDIT": "Editar",
+        "EXIT": "Sair",
+        "SAVE": "Salvar",
+        "NEXT": "Próximo",
+        "PREVIOUS": "Anterior",
+        "TURNBACK": "Retornar",
+        "ADD": "Adicionar",
+        "CONTINUE": "Continuar",
+        "SIGNUP": "Cadastrar-se"
+    },
+    "DATE": {
+        "TEXT": "Selecione uma data",
+        "MASK": "00/00/0000",
+        "WEEK": "Semana",
+        "MONTH": "Mês",
+        "YEAR": "Ano"
+    },
+    "LOGIN": {
+        "DOCUMENT-EMAIL": "E-mail ou CPF",
+        "USER": "Usuário",
+        "PASSWORD": "Senha",
+        "FORGOTPASSWORD": "Esqueceu a Senha ?",
+        "FORGOT-PASSWORD-OR-EMAIL": "Esqueci a senha",
+        "BTNLOGIN": "Login",
+        "PASSVISIBLE": "Visualizar",
+        "PASSHIDDEN": "Ocultar",
+        "FAILS": {},
+        "PASSWORD-RESET": "Senha",
+        "PASSWORD-RESET-CONFIRM": "Confirmar Senha",
+        "PASSWORD-RESET-BTN": "Resetar Senha",
+        "EXCEEDED-ATTEMPTS": "Você errou sua senha mais de cinco vezes. Sua conta foi bloqueada por motivos de segurança. Clique em 'Recuperar Senha'",
+        "RECOVER-PASSWORD": "Recuperar Senha",
+        "TITLE": "Login para participantes",
+        "RECOVER-INSTRUCTIONS": "As instruções de recuperação de senha serão enviadas para seu e-mail.",
+        "INSTRUCTIONS": "As instruções de recuperação de senha foram enviadas para seu e-mail com sucesso!",
+        "MAIL-ERROR": "Digite um e-mail válido",
+        "MAIL-AND-CPF-ERROR": "Digite um e-mail ou CPF válido",
+        "PASSWORD-ERROR": "Digite uma senha válida",
+        "PASSWORD-DONT-MATCH": "Senhas não são iguais",
+        "RECOVER-MESSAGE": "Para recuperar sua senha, clique em 'Esqueci a senha!'",
+        "LOGIN": "Login",
+        "NEW-ON-THE-PLATFORM": "Novo na plataforma?",
+        "PARTICIPANTS-LOGIN": "Login para Participantes",
+        "SIGNUP": "Cadastre-se",
+        "AGE-ALERT": "Você tem menos de 18 anos!",
+        "SUCCESS-MESSAGE": "Você foi cadastrado com sucesso! Aguarde enquanto te direcionamos para a tela de login...",
+        "SUCCESS-RESTORED": "Sua senha foi restaurada com sucesso. Redirecionando para a página de login..."
+    },
+    "POPOVER": {
+        "DASHBOARD": "Dashboard",
+        "MY-PROFILE": "Meu Perfil",
+        "LOGOUT": "Logout"
+    },
+    "RESPONSE-RESET": {
+        "INVALID-URL": "URL inválida!",
+        "RESET-PASSWORD": "Resetar Senha",
+        "PASSWORD-ALERT": "Sua senha deve conter caracteres maiúsculos, minúsculos e números",
+        "PASSWORD-ERROR": "Digite uma senha válida",
+        "PASSWORD-DONT-MATCH": "Senhas não são iguais"
+    },
+    "FOLLOWUS": {
+        "FACEBOOK": "Visite nossa página no Facebook",
+        "LINKEDIN": "Visite nossa página no Linkedin",
+        "GOOGLE": "Visite nossa página no Google+",
+        "YOUTUBE": "Visite nossa página no Youtube",
+        "BLOG": "Visite nosso site",
+        "CONTACT": "Entre em contato",
+        "HELP": "FAQ"
+    },
+    "RECOVER": {
+        "USER": "Número de telefone ou email",
+        "EMAIL": "E-MAIL",
+        "BACKLOGIN": "Login",
+        "FORGOTPASSWORD": "Redefinir",
+        "TITLE": "Vamos localizar sua conta",
+        "SUBTITLE": "Digite seu número de telefone ou e-mail",
+        "PLEASEWAIT": "Aguarde",
+        "SENDEMAIL": "Estamos enviando um e-mail"
+    },
+    "MOBILE": {
+        "STOREDOWN": "Mantenha a saúde de seu negócio.",
+        "MSGDOWN": "Baixe agora mesmo nosso aplicativo."
+    },
+    "PROFILE": {
+        "USER-DATA": "Dados do Usuário",
+        "COMPANY-DATA": "Dados da Empresa",
+        "ALTER-USER-PHOTO": "Atualizar Foto",
+        "USER": {
+            "AGE": "Idade",
+            "CONTACTS": "Contatos",
+            "PHONE": "Telefones",
+            "DOCUMENT": "CPF",
+            "DOCUMENT-MASK": "000.000.000-00",
+            "DATE-OF-BIRTH": "Data de Nascimento",
+            "LAST-NAME": "Sobrenome",
+            "EMAIL": "E-mail",
+            "NAME": "Nome",
+            "PERSONAL-DATA": "Dados Pessoais",
+            "PRIMARY-EMAIL": "E-mail Principal",
+            "TITLE": "Usuário",
+            "CREATE-ACCOUNT": "Quero criar uma conta",
+            "ALREADY-COSTUMER": "Já sou cliente",
+            "PASSWORD": "Senha",
+            "CONFIRM-PASSWORD": "Confirme sua senha",
+            "NEW-PASSWORD": "Senha",
+            "MIN-PASSWORD": "mínimo 8 caracteres",
+            "MAX-PASSWORD": "máximo 15 caracteres",
+            "NOT-CONFIRM-PASSWORD-ACCEPT": "Senhas divergentes!",
+            "EMPTY-PASSWORD": "É necessário digitar uma senha!",
+            "PERSON-TYPE": "Tipo de Pessoa",
+            "CLIENT-TYPE": "Tipo de Cliente"
+        },
+        "LANGUAGES": {
+            "TITLE": "Idiomas"
+        },
+        "COMPANY": {
+            "TITLE": "Empresa",
+            "SOCIAL-NAME": "Razão social",
+            "FANTASY-NAME": "Nome fantasia",
+            "MAIL": "E-mail"
+        },
+        "ADDRESS": {
+            "TITLE": "Endereços",
+            "LOCATION": "Endereço",
+            "POSTAL-CODE": "CEP",
+            "CITY": "Cidade",
+            "COUNTRY": "País",
+            "STATE": "Estado",
+            "NUMBER": "Número",
+            "COMPLEMENTARY-INFO": "Complemento",
+            "NEIGHBORHOOD": "Bairro",
+            "ADDRESS-MASK": "00.000-000",
+            "REFENCE-POINT": "Ponto de referência",
+            "DELIVERY": "Endereço de entrega"
+        }
+    },
+    "DATATABLE": {
+        "FILTER": "Pesquisar",
+        "ACTIONS": "Ações",
+        "EMPTY": "Nenhum registro encontrado"
+    },
+    "ERRORS": {
+        "REQUIRED-FIELD": "Campo obrigatório",
+        "DOCUMENT": {
+            "INVALID-DOCUMENT": "Documento inválido",
+            "INCOMPLETE-DOCUMENT": "Documento incompleto"
+        },
+        "EMAIL-EXISTS": "Este e-mail já está cadastrado em nosso banco de dados!",
+        "NAME-ERROR": "Digite um nome válido. Máx 50 caracteres.",
+        "SECONDNAME-ERROR": "Digite um sobrenome válido. Máx 30 caracteres.",
+        "MAIL-ERROR": "Digite um e-mail válido.",
+        "CPF-ERROR": "Digite um CPF válido",
+        "RESTRICT-ACCESS":"Acesso permitido apenas para usuários logados.",
+        "NOT-FOUND-SEARCH-EVENT":"Não foram encontrados eventos para sua busca..."
+    },
+    "MODAL-AUTHORIZATION": {
+        "CLOSE": "Fechar",
+        "WARNING": "ATENÇÃO",
+        "PERMISSION": "Você não tem permissão para este acesso!",
+        "AUTHENTICATE": "Autorizar",
+        "MESSAGE": "Sua sessão foi encerrada, para continuar a utilizar o sistema, efetue sua autenticação.",
+        "LOGIN": "Autenticar",
+        "LOGOUT": "Sair do sistema",
+        "PASSWORDERROR": "Senha inválida",
+        "RESETPASSWORD": "Trocar senha",
+        "CANCEL": "Cancelar"
+    },
+    "CURRENCY": {
+        "SYMBOL": "R$ "
+    },
+    "GENDER": {
+        "TITLE": "Gênero",
+        "FEMALE": "Mulher",
+        "MALE": "Homem",
+        "OTHER": "Outros",
+        "UNINFORMED": "Prefiro não informar"
+    },
+    "DISABILITIES": {
+        "TITLE": "Deficiente fisíco",
+        "TYPES": "Tipos de deficiência",
+        "AUDIT": "Deficiência auditiva",
+        "VISUAL": "Deficiência visual",
+        "PHYSICS": "Deficiência física",
+        "INTELLECTUAL": "Deficiência intelectual",
+        "MULTIPLE": "Deficiência múltipla"
+    },
+    "CONFIRM": {
+        "YES": "Sim",
+        "NO": "Não",
+        "PARTIAL": "Parcial"
+    },
+    "SOCIAL-MEDIA": {
+        "TITLE": "Redes sociais",
+        "LINKEDIN": "Linkedin",
+        "FACEBOOK": "Facebook",
+        "INSTAGRAM": "Instagram",
+        "GOOGLE": "Google",
+        "INFO": "Use sua rede social para se conectar*",
+        "CONNECT": {
+            "FACEBOOK": "Conectar com Facebook",
+            "LINKEDIN": "Conectar com Linkedin",
+            "GOOGLE": "Conectar com Google"
+        }
+    },
+    "COMPANY-SIZE": {
+        "TITLE": "Perfil da empresa",
+        "STARTUP": "Startup",
+        "SMALL": "Empresa pequena",
+        "AVERAGE": "Empresa média",
+        "BIG": "Empresa grande",
+        "INTERNATIONAL": "Empresa internacional",
+        "OWN-BUSINESS": "Negócio próprio",
+        "AUTONOMOUS": "Autônomo (Freelancer)"
+    },
+    "CONTACTS": {
+        "TITLE": "Contatos",
+        "RELATIVE": "Parente",
+        "COMMERCIAL": "Comercial",
+        "FRIEND":"Amiga(o)",
+        "WIFE":"Esposa(o)",
+        "CHILDREN":"filha(o)",
+        "OTHER":"Outra(o)",
+        "NAME":"Nome",
+        "PHONE": "Telefone",
+        "TYPE": "Tipo do Contato",
+        "EMAIL": "Email"
+    },
+    "INVALID": {
+        "EMAIL": "Formato de e-mail inválido"
+    },
+    "REQUIRED": {
+        "EMAIL": "Campo e-mail obrigatório"
+    },
+    "INFO": {
+        "NEW-COSTUMER": "* Seus dados serão preservados e nada será publicado em sua timeline. serviço válido somente para pessoas fisicas. Em caso de dúvidas, acesse nossa central de atendimento."
+    },
+    "SHOPPING-CART": {
+        "MY-CART": "Meu Carrinho",
+        "CONFIRM-ORDER": "Confirme seu pedido!",
+        "IDENTIFICATION": "Identificação",
+        "DELIVERY": "Entrega",
+        "PAYMENT": "Pagamento"
+    },
+    "ATTRIBUTES": {
+        "BIRTHDAY": "Data de Nascimento",
+        "NAME": "Nome",
+        "CPF": "Cadastro Pessoa Física",
+        "EMAIL": "Email",
+        "DOCUMENTOTHER": "Outros Documentos",
+        "MESSAGELENGTHERROR": "A quantidade de caracteres está fora do esperado.",
+        "MESSAGE": "Mensagem"
+    },
+    "SHIPPINGADDRESS": {
+        "BUSINESS": "Comercial",
+        "BILLING": "Faturamento",
+        "HOME": "Residencial",
+        "SELECTTYPESADDRESS": "Selecione o endereço que deseja receber seus items.",
+        "SELECTTYPEADDRESS": "Selecione o endereço:",
+        "ADDRESSTYPEREQUIRED": "O tipo de endereço é um campo obrigatório!",
+        "POSTALCODEREQUIRED": "O Cep é um campo obrigatório!",
+        "ADDRESSREQUIRED": "O Endereço é um campo obrigatório!",
+        "NEIGHBORHOODREQUIRED": "O Bairro é um campo obrigatório!",
+        "CITYREQUIRED": "A Cidade é um campo obrigatório!",
+        "STATEREQUIRED": "O Estado é um campo obrigatório!",
+        "COUNTRYREQUIRED": "O País é um campo obrigatório!"
+    },
+    "EVENTS": {
+        "SOLDOFF": "INGRESSOS ESGOTADOS!",
+        "NOTFAVORITEEVENT": "Você deve estar logado em sua conta para favoritar eventos!"
+    },
+    "EVENT": {
+        "PLACED_ORDER": "JÁ FEZ SEU PEDIDO?",
+        "SHARED_EVENT": "COMPARTILHE ESTE EVENTO",
+        "TALK_ORGANIZER": "Fale com o organizador",
+        "ORGANIZER": "Organizador",
+        "BTN_CLOSED":"ENCERRADO",
+        "BTN_SUBSRIBE" : "INSCREVA-SE",
+        "SUBSRIBE_TO":"increva-se até",
+        "CATEGORY":"Esportes",
+        "SUBTITLE": "INFORMAÇÕES GERAIS",
+        "NOTE": "",
+        "REPORT_EVENT": "Denunciar Evento",
+        "ACCESSDENIED": "Para realizar uma denúncia, você precisa estar logado na plataforma!"
+    }
+}

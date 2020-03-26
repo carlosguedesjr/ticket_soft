@@ -1,0 +1,22 @@
+.box {
+    margin-bottom: 20px;
+}
+
+.title {
+    display: table;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.title .mat-icon {
+    float: left;
+    color: rgba(214, 210, 210, 1);
+}
+
+.title section {
+    font-size: 1.17em;
+    font-weight: 500;
+    color: rgba(214, 210, 210, 1);
+    float: left;
+    margin: 2px 0 0 6px;
+}

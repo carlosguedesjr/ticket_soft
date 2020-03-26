@@ -1,0 +1,292 @@
+    /* IMAGE PROFILE */
+
+    .container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .container_left {
+        width: 25%;
+        position: relative;
+    }
+
+    .container_right {
+        width: 75%;
+    }
+    
+    .container_left--img_container {
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .container_left--icon_photo {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #edbe34;
+        bottom: 0;
+        left: 60px;
+    }
+    
+    .container_left--icon_cam {
+        font-size: 30px;
+        text-align: center;
+        color: #ffffff;
+        top: 10%;
+        left: 15%;
+        margin-top: 12%;
+        margin-left: 12%;
+    }
+
+    .container_left--img_profile {
+        border-radius: 50%;
+        width: 80%;
+    }
+
+    /* EVENTOS */
+
+    .section-cards {
+        display: table;
+        width: 100%;
+    }
+    
+    .event-card-data {
+        width: 100%;
+        display: inline-flex;
+        margin-bottom: 4px;
+        border-bottom: 1px solid #eee;
+        font-family: 'Open Sans', sans-serif;
+        color: #0097ff;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        text-transform: none;
+    }
+    
+    .event-card-data span {
+        letter-spacing: 0.2px;
+        margin-right: 5px;
+    }
+    
+    .event-card-data .day {
+        color: #000;
+        font-size: 24px;
+        font-weight: 400;
+    }
+    
+    .event-name {
+        display: block;
+        overflow: hidden;
+        max-height: 24px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 600;
+        color: #000;
+        width: 250px;
+    }
+    
+    .event-location {
+        color: #aaaab1;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.2px;
+    }
+    
+    .event-location.event-card {
+        max-height: 40px;
+        margin-right: 16px;
+        margin-bottom: 0px;
+        padding-left: 20px;
+        float: none;
+        background-image: url('src/assets/icons/ic-location-event-card.svg');
+        background-position: -5px -1px;
+        background-size: 24px;
+        background-repeat: no-repeat;
+        line-height: 20px;
+        text-decoration: none;
+        overflow: hidden;
+    }
+    
+    .event-hover {
+        width: 100%;
+        background: transparent;
+        height: 148px;
+        position: absolute;
+        margin-left: -16px;
+        margin-top: -16px !important;
+        text-align: center;
+    }
+    
+    .icons-card:hover {
+        box-shadow: 0 3px 5px -1px rgba(255, 255, 255, .2), 0 6px 10px 0 rgba(255, 255, 255, .10), 0 1px 18px 0 rgba(255, 255, 255, .12);
+    }
+    
+    .fav-event {
+        left: 24%;
+    }
+    
+    .share-event {
+        left: 49%;
+    }
+    
+    .cart-event {
+        left: 75%;
+    }
+    
+    .event-hover:hover .icons-card {
+        display: inline-flex;
+    }
+
+    .icon-clock {
+        display: block;
+        padding-left: 17px;
+        padding-top: 1px;
+        background-image: url('src/assets/icons/ic_time-13x13.svg');
+        background-position: 0px 6px;
+        background-repeat: no-repeat;
+        color: #a3a2a9;
+        font-size: 12px;
+        line-height: 24px;
+        letter-spacing: 0.3px;
+    }
+    
+    .event-soldoff {
+        background-color: rgba(0, 146, 210, 0.8);
+        color: white;
+        font-size: 2rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-35deg);
+        text-align: center;
+        width: 130%;
+        padding: 1.2rem 0;
+        font-weight: bold;
+    }
+    
+    .sectionColumn1 {
+        display: flex;
+        flex-direction: column;
+        background-color: lightsalmon;
+    }
+    
+    .sectionColumn2 {
+        display: flex;
+        flex-direction: column;
+        background-color: lightblue;
+    }
+    
+    .sectionColumn3 {
+        display: flex;
+        flex-direction: column;
+        background-color: lightgreen;
+    }
+    
+    
+    
+    .card {
+        float: left;
+        max-width: 328px;
+        margin: 10px;
+        padding: 0 16px 16px;
+        overflow: hidden;
+    }
+    
+    .card img {
+        border-radius: 5px;
+        width: 282px;
+        height: 148px;
+    }
+    
+    .section-title {
+        padding: 12px;
+    }
+    
+    .section-title h3 {
+        font-family: sans-serif;
+        color: #50515e;
+    }
+    
+    .event-location {
+        color: #aaaab1;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.2px;
+    }
+    
+    .event-location.event-card {
+        max-height: 40px;
+        margin-right: 16px;
+        margin-bottom: 0px;
+        padding-left: 20px;
+        float: none;
+        background-image: url('src/assets/icons/ic-location-event-card.svg');
+        background-position: -5px -1px;
+        background-size: 24px;
+        background-repeat: no-repeat;
+        line-height: 20px;
+        text-decoration: none;
+        overflow: hidden;
+    }
+    
+    .event-hover {
+        width: 100%;
+        background:transparent;
+        height: 148px;
+        position: absolute;
+        margin-left: -16px;
+        margin-top: -16px !important;
+        text-align: center;
+    }
+    
+    .event-hover:hover {
+        width: 100%;
+        background: rgba(255, 111, 0, 0.87);
+        height: 148px;
+        position: absolute;
+        margin-left: -16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .icons-card {
+        display: none;
+        color: white;
+        font-family: "monradsemibold", sans-serif;
+        border-radius: 40px;
+        padding: 5px 15px;
+        border: 1px solid white;
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+    
+    .icons-card:hover {
+        box-shadow: 0 3px 5px -1px rgba(255,255,255,.2), 0 6px 10px 0 rgba(255,255,255,.10), 0 1px 18px 0 rgba(255,255,255,.12);
+    }
+    
+    .event-hover:hover .icons-card {
+        display: inline-flex;
+    }
+
+    /* SEARCH BAR */
+
+    .container_right--subs_container {
+        display: block;
+        margin: 5px 0;
+    }
+
+    /* RADIO BUTTONS */
+
+    .container_right--radio_btns {
+        display: flex;
+        flex-direction: row;
+    }

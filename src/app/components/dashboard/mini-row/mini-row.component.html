@@ -1,0 +1,34 @@
+<section fxFlex="100%" fxLayoutGap="20px">
+  <div fxFlex="25%" *ngFor="let item of data;let i = index">
+    <mat-toolbar class="{{ item.iconClass }}">
+      <mat-toolbar-row class="header-toolbar-row">
+        <mat-icon>{{ item.icon }}</mat-icon>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-card class="miniRowCard">
+      <mat-card-content>
+        <div>
+          <section>
+            <span>{{ 'DOCUMENTS.' + module.toUpperCase() | translate }} {{ 'DASHBOARD.DOCUMENTS.' + item.type.toUpperCase() | translate }}</span>
+          </section>
+          <section>
+            <span [countUp]="item.value" [options]="countUpOptions"></span>
+            <span [countUp]="item.value" [options]="countUpOptionsText"></span>
+          </section>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <hr>
+        <div>
+          <section>
+            <mat-icon>date_range</mat-icon>
+            <section matTooltip="{{ item.lastDate | amDateFormat: 'DD/MM/YYYY HH:mm' }}">
+              <span>{{ 'DASHBOARD.LAST.' + item.type.toUpperCase() | translate }}</span>
+              <span>{{ item.lastDate | amLocale:'pt' | amCalendar }}</span>
+            </section>
+          </section>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>

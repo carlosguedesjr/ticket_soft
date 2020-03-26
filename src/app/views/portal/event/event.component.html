@@ -1,0 +1,94 @@
+<mat-card class="" id="main">
+    <section>
+        <img class="image-header" mat-card-image src="{{event?.thumb}}" alt="{{event?.event_name}}">
+    </section>
+    <mat-card-content>
+        <mat-grid-list cols="3">
+            <mat-grid-tile class="card1" [colspan]="2" [rowspan]="1">
+                <div class="event">
+                    <mat-card-title>{{ event?.event_name }}</mat-card-title>
+                    <mat-card-subtitle>{{ event?.category}}</mat-card-subtitle>
+                    <section *ngIf="event">
+                        <ul>
+                            <section class="icon-event">
+                                <ng-template ngFor let-icon [ngForOf]="event?.icons">
+                                    <div class="icon-event_section">
+                                        <li class="circle">
+                                            <mat-icon class="icons">{{icon.icon}}</mat-icon>
+                                        </li>
+                                        <span class="section-categories-title">{{icon.text}}</span>
+                                    </div>
+                                </ng-template>
+                            </section>
+                        </ul>
+                    </section>
+
+                    <br>
+                    <div>
+                        <mat-card-title>{{'EVENT.SUBTITLE'  | translate}}</mat-card-title>
+                    </div>
+                    <div>
+                        <mat-card-title>{{'EVENT.NOTE'  | translate}}</mat-card-title>
+                    </div>
+
+                    {{event | json}}
+                </div>
+            </mat-grid-tile>
+
+            <!-- Dados organização -->
+            <mat-grid-tile class="card2" [colspan]="1" [rowspan]="1">
+                <div class="event">
+                    <div class="event-inner">
+                        <div class="event-super-inner">
+                            <div class="title">
+                                <p> {{'EVENT.SUBSRIBE_TO'  | translate}} {{event?.finish_date_subscription}}
+                                    {{event?.finish_hour_subscription}}
+                                </p>
+                            </div>
+                            <div *ngIf="!event?.subscription_closed else elseBlock">
+                                <button class="btn-subscription grayBtn" disabled>
+                                    {{'EVENT.BTN_CLOSED'  | translate}}
+                                </button>
+                            </div>
+                            <ng-template #elseBlock>
+                                <button class="btn-subscription yellowBtn">
+                                    {{'EVENT.BTN_SUBSRIBE'  | translate}}
+                                </button>
+                            </ng-template>
+
+                            <div class="organizer">
+                                <mat-card-title>{{'EVENT.ORGANIZER'  | translate}}</mat-card-title>
+                                <mat-card-subtitle>{{event?.organizer}}</mat-card-subtitle>
+                            </div>
+                            <a (click)="talkOganizer(event)" class="talkOrganizer">
+                                {{'EVENT.TALK_ORGANIZER'  | translate}}
+                            </a>
+                            <div class="sharedEvent">
+                                <mat-card-title>{{'EVENT.SHARED_EVENT'  | translate}}</mat-card-title>
+                            </div>
+
+
+                            <div class="container-icons">
+                                <div class="back-facebook grow" (click)="sharedFacebook()"> <i class="fab fa-facebook-square  iconFacebook"></i> </div>
+                                <div class="back-twitter grow" (click)="sharedTwitter()"> <i class="fab fa-twitter  iconTwitter "></i></div>
+                                <div class="back-envelope grow" (click)="sharedEnvelope()"> <i class="fas fa-envelope  iconEnvelope "></i></div>
+                                <div class="back-whats grow" (click)="sharedWhatsapp()"> <i class="fab fa-whatsapp  iconWhatsapp "></i></div>
+                                <div class="back-print grow" (click)="sharedPrint()"> <i class="fas fa-print  iconPrint "></i></div>
+                            </div>
+
+                            <div class="sharedEvent">
+                                <mat-card-title class="order">{{'EVENT.PLACED_ORDER' | translate}}</mat-card-title>
+                                <div class="itensOrganizer">
+                                    <div *ngFor="let link of event?.links">
+                                        <a href="{{ link.link }}" class="linksOrganizer">{{ link.description }}</a>
+                                    </div>
+                                    <a (click)="reportEvent(event)">{{'EVENT.REPORT_EVENT'| translate}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+</mat-card>

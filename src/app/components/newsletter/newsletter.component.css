@@ -1,0 +1,166 @@
+
+.newsletter-signature {
+    width: 100%;
+    background: url('https://ticketagora.com.br/img/login/bg-login-participantes.jpg') no-repeat bottom center fixed;
+    background-size: 500vh;
+    overflow: hidden;
+    position: relative;
+    padding-top: 20px;
+    background-position: center center;
+}
+
+.newsletter-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 80%;
+    margin: 0 auto;
+    /* display: table;
+    width: 80%;
+    margin: 0 auto;
+    min-height: 200px; */
+}
+
+.newsletter-content section {
+    float: left;
+}
+
+.newsletter-form {
+    width: 50%;
+    padding-bottom: 20px;
+}
+
+.newsletter-image {
+    position: relative;
+    display: block;
+    width: 49%;
+    height: 429px;
+    text-align: right;
+}
+
+.newsletter-image img {
+    position: absolute;
+    width: 319px;
+    left: 40%;
+    opacity: 0;
+}
+
+.active{
+    -webkit-animation: newsletter-animation-1 5s;
+    -moz-animation: newsletter-animation-1 5s;
+    -o-animation: newsletter-animation-1 5s;
+    animation: newsletter-animation-1 5s;
+    animation-delay: 0.5s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes newsletter-animation-1 {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    25% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    75% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+
+/* input color class */
+.newsletter-fields ::ng-deep input.mat-input-element {
+    color: #fff;
+}
+
+.newsletter-fields ::ng-deep .mat-form-field .mat-form-field-label {
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/* Change label color on focused */
+.newsletter-fields ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: #f3bd33;
+}
+
+/* underline border color on focused */
+.newsletter-fields ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple {
+    background-color: #f3bd33;
+}
+
+.newsletter-fields ::ng-deep .mat-select-value {
+    color: #fff;
+}
+
+.newsletter-fields ::ng-deep .mat-select-arrow {
+    color: #fff;
+}
+
+.newsletter-fields ::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: #fff;
+}
+
+.newsletter-fields ::ng-deep .mat-form-field-infix {
+    border-bottom: 1px solid white;
+}
+
+.mail {
+    margin-right: 10px;
+    width: 88%;
+}
+
+.name {
+    width: 100%;
+}
+
+.select-state {
+    width: 10%;
+}
+
+.newsletter-title h2 {
+    color: white;
+    text-transform: uppercase;
+    font-family: "monradbold", sans-serif;
+    font-size: 22px;
+    margin-bottom: 15px;
+    border-bottom: 5px solid #F3BD22;
+}
+
+.newsletter-title h3 {
+    color: #fff;
+    font-size: 12px;
+    font-family: "monradregular", sans-serif;
+    line-height: 0;
+}
+
+.newsletter-fields {
+    padding-top: 10px;
+}
+
+.newsletter-submit {
+    width: 100%;
+}
+
+.btn-newsletter {
+    text-transform: uppercase;
+    font-size: 14px;
+    background: #FF6F00;
+    font-family: "monradbold", sans-serif;
+    color: white;
+    font-weight: 600;
+}
+
+.btn-newsletter .mat-icon {
+    font-size: 16px;
+    vertical-align: text-top;
+}

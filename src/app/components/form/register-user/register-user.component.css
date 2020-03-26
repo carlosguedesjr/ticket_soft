@@ -1,0 +1,183 @@
+
+/* CONTAINERS */
+.register-user {
+    font-family: 'Roboto', 'sans-serif';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right bottom, rgba(1, 1, 90, 0.8), rgba(61, 21, 3, 0.8)), url('../../../../assets/images/background-login.jpg');
+    background-size: cover;
+}
+
+.register-user__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.register-user__container--inner {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 55%;
+    width: 600px;
+    background-color: rgba(255, 255, 255, 0.65);
+    box-shadow: 3px 4px 5px rgba(8, 8, 8, 0.2);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    height: 68%;
+}
+
+.teste {
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-page__header {
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.login-page--logo {
+    position: absolute;
+    height: 100px;
+    top: -50px;
+    transform: translateX(-50%);
+}
+
+.register-user__inputs-third-row,
+.register-user__inputs-fourth-row {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+}
+
+.register-user__inputs-first-row,
+.register-user--inputs-second-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.register-user--name,
+.register-user--mail,
+.register-user__date,
+.register-user__password,
+.register-user__confirm-password {
+    width: 100%;
+    font-size: 0.8rem;
+}
+
+
+.register-user--second-name,
+.register-user__CPF,
+.register-user__gender {
+    width: 47%;
+    font-size: 0.8rem;
+}
+
+
+/* BUTTON */
+
+.register-user__container--button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    width: 100%,
+}
+
+.register-user__button.enabled {
+    border-radius: 5px;
+    margin-bottom: 0.7rem;
+    border: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    background-color: rgb(255, 205, 54);
+    outline: none;
+    border: 1px solid transparent;
+    color: #fff;
+    padding: 0.7rem;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+}
+
+.register-user__button.enabled:hover,
+.register-user__button.enabled:active {
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+}
+
+.register-user__button.disabled {
+    border-radius: 5px;
+    margin-bottom: 0.7rem;
+    border: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    background-color: rgb(142, 140, 135);
+    outline: none;
+    border: 1px solid transparent;
+    color: #fff;
+    padding: 0.7rem;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+}
+
+.show-password:hover,
+.show-password:active {
+    cursor: pointer;
+}
+
+/* HINTS */
+.hint-password {
+    width: 100%;
+}
+
+.hint-password .message {
+    float: left;
+    width: 50%;
+    text-align: left;
+}
+
+.hint-password .length {
+    float: right;
+    width: 50%;
+    text-align: right;
+}
+
+/* CONTAINER SUCCESS MESSAGE */
+
+.register-user__container-success {
+    opacity: 0;
+    z-index: -3000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 1);
+    transition: all .7s;
+}
+
+.register-user__container-success.active {
+    opacity: 1;
+    z-index: 10000;
+}
+
+.register-user__message-success {
+    position: absolute;
+    font-size: 1.5rem;
+    width: 80%;
+    text-align: center;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

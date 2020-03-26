@@ -1,0 +1,9 @@
+<!-- <mat-icon matPrefix class="icons-menu slide-cart-icon cart-btn" (document:click)="changeStateSlideShoppingCart($event)"
+    matBadge={{qtdEventsShoppingCardBadge}} matBadgePosition="above after">shopping_cart</mat-icon> -->
+
+<mat-icon *ngIf="qtdEventsShoppingCardBadge === 0" matPrefix class="icons-menu slide-cart-icon cart-btn"
+    (document:click)="changeStateSlideShoppingCart($event)" matBadgePosition="above after">shopping_cart</mat-icon>
+
+<mat-icon *ngIf="qtdEventsShoppingCardBadge > 0" matPrefix class="icons-menu slide-cart-icon cart-btn"
+    (document:click)="changeStateSlideShoppingCart($event)" matBadge={{qtdEventsShoppingCardBadge}}
+    matBadgePosition="above after">shopping_cart</mat-icon>

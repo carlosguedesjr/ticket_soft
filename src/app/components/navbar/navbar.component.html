@@ -1,0 +1,34 @@
+<mat-toolbar
+    [className]="verticalOffset > 50 ? 'mat-elevation-z6 white mat-toolbar-single-row' : 'mat-elevation-z6 transparent mat-toolbar-single-row'">
+    <div fxFlex="80" class="menu-center">
+        <!-- Logo -->
+        <section fxFlex="10" fxFlexAlign="center">
+            <a class="navbar-brand" href="/">
+                <img class="vertical-middle" src="https://upload.wikimedia.org/wikipedia/pt/6/67/EPTV.png" height="40"
+                    alt="">
+            </a>
+        </section>
+        <!-- Top Menu -->
+        <section fxFlex="80">
+            <ul class="nav-menu">
+                <ng-template ngFor let-item [ngForOf]="menu">
+                    <li (click)="getRoute()">
+                        <a [routerLink]="item.link"  [routerLinkActiveOptions]="{exact : item.exact}" routerLinkActive="active">
+                            <mat-icon matPrefix class="icons-menu">{{ item.icon }}</mat-icon>{{ item.text | translate }}
+                        </a>
+                    </li>
+                </ng-template>
+                <li class="toolbar-login" *ngIf="!isAuthenticated">
+                    <app-login-btn></app-login-btn>
+                </li>
+                <li *ngIf="isAuthenticated">
+                    <app-profile-btn></app-profile-btn>
+                </li>
+                <li>
+                   
+                     <app-cart-btn [qtdEventsShoppingCardBadge]="qtdEventsShoppingCardBadge"></app-cart-btn> 
+                </li>
+            </ul>
+        </section>
+    </div>
+</mat-toolbar>

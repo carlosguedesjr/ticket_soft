@@ -1,0 +1,101 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="3%">
+    <div fxFlex="70%">
+        <mat-toolbar color="primary">
+            <mat-toolbar-row class="header-toolbar-row">
+                <mat-icon>perm_identity</mat-icon>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-card class="mat_card_container">
+            <mat-card-content>
+                <mat-tab-group [dynamicHeight]="true">
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <mat-icon class="tab-icon">face</mat-icon>
+                            {{ 'PROFILE.USER.PERSONAL-DATA' | translate }}
+                        </ng-template>
+                        <app-user [userInformation]="userInformation"></app-user>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <mat-icon class="tab-icon">house</mat-icon>
+                            {{ 'PROFILE.ADDRESS.TITLE' | translate }}
+                        </ng-template>
+                        <div class="container_addresses-btn_add_address">
+                            <button name="add_address" id="add_address" type="button" (click)="addAddress()"
+                                class="button_add_address" matTooltip="Adicionar Endereços">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </div>
+                        <mat-card *ngFor="let address of addresses; let i = index">
+                            <section class="container_addresses--outter">
+                                <div class="container_addresses--inner">
+                                    <section class="container_addresses--content">
+                                        <div>
+                                            <span>{{address?.idTipoEnderecoNavigation.descricaoTipoEndereco}}</span>
+                                        </div>
+                                        <div>
+                                            <span>{{address?.logradouro}}</span> ,
+                                            <span>{{address?.numero}}</span> -
+                                            <span>{{address?.bairro}}</span>
+                                        </div>
+                                        <div>
+                                            <span>{{address?.estado}}</span>-
+                                            <span>{{address?.idCidadeNavigation.cidade}}</span> -
+                                            <span>{{address?.cep}}</span>
+                                        </div>
+                                    </section>
+                                </div>
+                                <section class="container_addresses--icons">
+                                    <a class="container_addresses--icon" (click)="editAddress(address)">
+                                        <mat-icon color="primary" class="edit-icon">edit</mat-icon>
+                                    </a>
+                                    <a (click)=removeAddress(address)>
+                                        <mat-icon color="warn" class="delete-icon">delete</mat-icon>
+                                    </a>
+                                </section>
+                            </section>
+                        </mat-card>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <mat-icon class="tab-icon">phone_enabled</mat-icon>
+                            {{ 'PROFILE.USER.PHONE' | translate }}
+                        </ng-template>
+
+                        <div class="container_addresses-btn_add_address">
+                            <button name="add_phone" id="add_phone" type="button" (click)="addPhone()"
+                                class="button_add_address" matTooltip="Adicionar Telefones">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </div>
+
+                        <mat-card *ngFor="let phone of phonesClient">
+                            <section class="container_addresses--outter">
+                                <div class="container_addresses--inner">
+                                    <section class="container_addresses--content">
+                                        <div>
+                                            <span>{{phone?.idTipoTelefoneNavigation?.descrTipoTelefone}}</span> -
+                                            <span>{{phone?.numero}}</span>
+                                        </div>
+                                    </section>
+                                </div>
+                                <section class="container_addresses--icons">
+                                    <a class="container_addresses--icon" (click)="editPhone(phone)">
+                                        <mat-icon color="primary" class="edit-icon">edit</mat-icon>
+                                    </a>
+                                    <a (click)=removePhone(phone)>
+                                        <mat-icon color="warn" class="delete-icon">delete</mat-icon>
+                                    </a>
+                                </section>
+                            </section>
+                        </mat-card>
+                        <!-- <app-contacts></app-contacts> -->
+                    </mat-tab>
+                </mat-tab-group>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div fxFlex="30%">
+        <app-profile-information [imageProfile]="imageProfile"></app-profile-information>
+    </div>
+</div>

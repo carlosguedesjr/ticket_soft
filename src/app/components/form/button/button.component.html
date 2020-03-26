@@ -1,0 +1,11 @@
+<div class="button-row">
+  <button mat-button [color]="color" [ngClass]="[ type, class ]" matTooltip="{{ tooltip | translate }}" 
+  [matTooltipPosition]="tooltipPosition">
+    <mat-icon *ngIf="icon && !icon.includes('fa'); else fa">{{ icon }}</mat-icon>
+    <ng-template #fa>
+        <i class="{{ icon }}"></i>
+    </ng-template>
+    <span class="{{ classText }}" *ngIf="text">{{ text }}</span>
+    <span class="{{ classTile }}" *ngIf="title">{{ title }}</span>
+  </button>
+</div>

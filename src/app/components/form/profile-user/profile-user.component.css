@@ -1,0 +1,144 @@
+mat-toolbar {
+    position: absolute;
+    width: 63px;
+    height: 65px;
+    z-index: 1;
+    margin-left: 25px;
+    border-radius: 3px;
+}
+
+.mat_card_container {
+    margin-top: 20px;
+    padding-top: 63px;  
+}
+
+mat-toolbar-row.header-toolbar-row.mat-toolbar-row {
+    padding: 0 19px;
+}
+
+profile-information {
+    display: table;
+    width: 100%;
+}
+
+
+.tab-icon {
+    margin-right: 8px;
+}
+
+
+
+.checkout-title {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.checkout-title.container_options_delivery {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.checkout-title_left {
+    display: flex;
+    flex-direction: row;
+}
+
+.checkout-title .mat-icon {
+    color: rgba(214, 210, 210, 1);
+}
+
+.checkout-title .checkout-title_title {
+    font-size: 1.17em;
+    font-weight: 500;
+    color: rgba(214, 210, 210, 1);
+    margin-left: 6px;
+}
+
+.container_addresses--outter {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.container_addresses--middle {
+    width: 30%;
+}
+
+.container_addresses--inner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.container_addresses--content {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.container_addresses--icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.container_addresses--icon {
+    margin-right: 20px;
+}
+
+.button_add_address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    color: white;
+    background-color: #3f51b5;
+    box-shadow: none;
+    border: none;
+    padding: 0.5rem;
+    margin-right: 16px;
+    transition: 0.3s all;
+}
+.container_addresses-btn_add_address{
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.container_addresses-label_add_address{
+    display: flex;
+    justify-content: center;
+}
+
+.button_add_address:hover, .button_add_address:active {
+    transform: translateY(1px);
+    cursor: pointer;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.edit-icon, .delete-icon {
+    transition: 0.2s ease-in-out;
+}
+
+.edit-icon:hover, .edit-icon:active, .delete-icon:hover, .delete-icon:active {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #3f51b5;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: rgb(63, 81, 181);
+}
+
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    background-color: rgba(63, 81, 181, 0.2);
+}

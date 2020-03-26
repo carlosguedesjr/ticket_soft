@@ -1,0 +1,25 @@
+<form [formGroup]="phoneForm" (ngSubmit)="saveForm()">
+    <section class="formTop">
+        <section fxLayout="column">
+            <div fxLayout.lt-md="column" fxLayoutGap="40px">
+                <mat-form-field fxFlex="50%" fxFill>
+                    <mat-label>{{ 'CONTACTS.TITLE' | translate }}</mat-label>
+                    <mat-select formControlName="type">
+                        <mat-option *ngFor="let item of phoneTypes" [value]="item?.idTipoTelefone">
+                            {{ item.descrTipoTelefone | translate }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field fxFlex="50%" fxFill>
+                    <input matInput formControlName="phone" type="text" placeholder="{{ 'CONTACTS.PHONE' | translate }}">
+                    <mat-error class="text-danger"
+                        *ngIf="phoneForm.get('phone')?.errors?.required && (phoneForm.get('phone').dirty || phoneForm.get('phone').touched)">
+                        <p>Preencha o campo telefone</p>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <button mat-button type="submit" *ngIf="data.phone" class="btnSalvar">Atualizar</button>
+            <button mat-button type="submit" *ngIf="!data.phone" class="btnSalvar">Salvar</button>
+        </section>
+    </section>
+</form>

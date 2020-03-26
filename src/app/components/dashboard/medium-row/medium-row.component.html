@@ -1,0 +1,31 @@
+<section fxFlex="100%" fxLayoutGap="20px" class="mediumRowContainer">
+  <div fxFlex="33.333%" *ngFor="let item of mockData;let i = index">
+    <mat-toolbar [ngClass]="item.graphClass">
+      <mat-toolbar-row class="header-toolbar-row">
+        <div class="chartContainer" id="{{ 'chartdiv' + i }}"></div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-card class="miniRowCard">
+      <mat-card-content>
+        <div class="text">
+          <section>
+            <span>{{ item.text }}</span>
+            <span>{{ item.subText }}</span>
+          </section>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <hr>
+        <div>
+          <section>
+            <mat-icon>date_range</mat-icon>
+            <section>
+              <span>Ultimo teste em</span>
+              <span>Ontem</span>
+            </section>
+          </section>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>

@@ -1,0 +1,74 @@
+<form (ngSubmit)="saveForm()" [formGroup]="userInformationForm">
+    <div class="formTop">
+        <section>
+            <div fxLayout.lt-md="column" fxLayoutGap="40px">
+                <mat-form-field fxFlex="50%" fxFill>
+                    <mat-label>{{ 'PROFILE.USER.PERSON-TYPE' | translate }}</mat-label>
+                    <mat-select formControlName="personType">
+                        <mat-option *ngFor="let item of personType" [value]="item?.idTipoPessoa">
+                            {{ item.descTipoPessoa }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="50%" fxFill>
+                    <mat-label>{{ 'PROFILE.USER.CLIENT-TYPE' | translate }}</mat-label>
+                    <mat-select formControlName="clientType">
+                        <mat-option *ngFor="let item of clientType" [value]="item?.idTipoCliente">
+                            {{ item.descTipoCliente }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <section fxLayout="column">
+                <div fxLayout.lt-md="column" fxLayoutGap="40px">
+                    <mat-form-field fxFlex="50%" fxFill>
+                        <input matInput placeholder="{{ 'PROFILE.USER.NAME' | translate }}" formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="50%" fxFill>
+                        <input matInput placeholder="{{ 'PROFILE.USER.DOCUMENT' | translate }}"
+                            formControlName="document">
+                    </mat-form-field>
+                </div>
+                <div fxLayout.lt-md="column" fxLayoutGap="40px">
+                    <mat-form-field fxFlex="40%" fxFill>
+                        <mat-label>{{ 'GENDER.TITLE' | translate }}</mat-label>
+                        <mat-select formControlName="gender" [value]="item?.type">
+                            <mat-option *ngFor="let item of genders" >
+                                {{ item.description | translate }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field fxFlex="30%" fxFill>
+                        <input formControlName="datepicker" matInput [matDatepicker]="datebirtth"
+                            placeholder="{{ 'PROFILE.USER.DATE-OF-BIRTH' | translate }}"
+                            (dateChange)="calculateAge($event)">
+                        <mat-datepicker-toggle matSuffix [for]="datebirtth"></mat-datepicker-toggle>
+                        <mat-datepicker #datebirtth></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field fxFlex="30%" fxFill>
+                        <input matInput placeholder="{{ 'PROFILE.USER.AGE' | translate }}" formControlName="age"
+                            readonly>
+                    </mat-form-field>
+                </div>
+                <div fxLayout.lt-md="column" fxLayoutGap="40px">
+                    <mat-form-field fxFlex="100%" fxFill>
+                        <input matInput placeholder="{{ 'PROFILE.USER.PRIMARY-EMAIL' | translate }}"
+                            formControlName="email">
+                        <mat-error class="text-danger"
+                            *ngIf="userInformationForm.get('email')?.errors?.required && (userInformationForm.get('email').dirty || userInformationForm.get('email').touched)">
+                            <p>Preencha o campo email</p>
+                        </mat-error>
+                        <mat-error class="text-danger"
+                            *ngIf="userInformationForm.get('email')?.errors?.email && (userInformationForm.get('email').dirty || userInformationForm.get('email').touched)">
+                            <p>Email em formato inválido</p>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- <button mat-button type="submit" *ngIf="userInformationForm.valid" class="btnSalvar">Salvar</button> -->
+                <button mat-button type="submit"  class="btnSalvar">Salvar</button>
+            </section>
+        </section>
+    </div>
+</form>

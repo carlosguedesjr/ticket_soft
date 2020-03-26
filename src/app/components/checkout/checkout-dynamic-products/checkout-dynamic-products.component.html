@@ -1,0 +1,63 @@
+<ul class="list-optional-products">
+    <ng-template ngFor let-productIndex=index let-product [ngForOf]="products.controls">
+        <li [formGroup]="product">
+            <div class="container-check-product">
+                <app-checkout-mat-checked-dynamic (emitCheckProduct)="checkProduct($event)" [invitation]="invit"
+                    [formGroupProduct]="product" [idProduct]="product.get('id').value" [products]="products">
+                </app-checkout-mat-checked-dynamic>
+            </div>
+            <div class="container-product">
+                <section class="img-product">
+                    <ng-template [ngIf]="product.get('percent_off').value">
+                        <span class="percent-off">
+                            <mat-icon>arrow_downward</mat-icon> -
+                            {{ (product.get('percent_off').value / 100 ) | percent }}
+                        </span>
+                    </ng-template>
+                    <ng-template [ngIf]="product.get('discount_picture').value">
+                        <span class="discount-picture"><img
+                                src="{{ product.get('discount_picture').value  }}" /></span>
+                    </ng-template>
+                    <img src="{{ product.get('thumb').value  }}" />
+                </section>
+                <div class="container-description-product">
+                    <div>
+                        <section class="name-product">{{ product.get('name').value  }}</section>
+                        <section class="description-product">{{ product.get('description').value }}</section>
+                    </div>
+                    <div class="category">
+                        <section>Categoria: </section>
+                        <section class="type-category">{{ product.get('category').value }}</section>
+                    </div>
+                    <div class="price-product">
+                        <ng-template [ngIf]="product.get('discount_amount').value">
+                            <section class="original-price">
+                                {{ product.get('price').value | currency:'BRL':true }}
+                            </section>
+                            <section class="current-price">
+                                {{ (product.get('price').value - product.get('discount_amount').value) | currency:'BRL':true }}
+                            </section>
+                        </ng-template>
+                        <ng-template [ngIf]="!product.get('discount_amount').value">
+                            <section class="original-price"></section>
+                            <section class="current-price">
+                                {{ product.get('price').value | currency:'BRL':true }}
+                            </section>
+                        </ng-template>
+                    </div>
+                    <div class="product-attribute">
+                        <section class="title">Selecione o modelo</section>
+                        <ng-template ngFor let-attributesIndex=index let-attributes
+                            [ngForOf]="product.get('attributes').controls">
+                            <div [formGroup]="attributes" class="container-product_inner-attributes">
+                                <app-checkout-dynamic-attributes-product (setValueAttribute)="getValueAttribute($event)"
+                                    [attributes]="attributes">
+                                </app-checkout-dynamic-attributes-product>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ng-template>
+</ul>

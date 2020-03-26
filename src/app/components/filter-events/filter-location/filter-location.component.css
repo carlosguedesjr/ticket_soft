@@ -1,0 +1,67 @@
+h1 {
+    width: 100%;
+    font-weight: normal;
+}
+
+.board-filters-location {
+    width: 79%;
+    float: left;
+}
+
+.board-filters-location mat-form-field.mat-form-field {
+    font-size: 13px;
+}
+
+.board-filters-location .state {
+    width: 13%;
+}
+
+.board-filters-location .city {
+    width: 30%;
+    margin: 0 14px;
+}
+
+.accept {
+    display: table;
+    text-align: center;
+    padding: 8px 0 0 15px;
+    border-left: 0.5px solid #ccc;
+    height: 90px;
+}
+
+.accept div {
+    width: 100%;
+    font-size: 12.5px;
+    text-align: center;
+    color: #212529;
+    margin-bottom: .5rem;
+}
+
+@media screen and (max-width: 1280px) {
+    .board-filters-location .state {
+        width: 40%;
+    }
+
+    .board-filters-location .city {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 622px) {
+    .board-filters-location {
+        width: 100%;
+    }
+
+    .board-filters-location .state {
+        width: 100%;
+    }
+
+    .board-filters-location .city {
+        width: 100%;
+        margin: 0;
+    }
+
+    .accept {
+        border-left: none;
+    }
+}

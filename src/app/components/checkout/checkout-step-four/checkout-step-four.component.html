@@ -1,0 +1,60 @@
+<section class="checkout-title">
+	<div class="checkout-title_left">
+		<mat-icon>my_location</mat-icon>
+		<section class="checkout-title_title">Revisão do Produto</section>
+	</div>
+</section>
+<a class="edit_cart_btn">Editar Sacola</a>
+
+<p>Entrega 01 de 02 por Friopeças - Em até 11 dias úteis*</p>
+<p>01 Ar Condicionado Split Hi Wall Electrolux Ecoturbo 9000 BTUs Frio R410</p>
+
+<p>Endereço para as entregas 01 e 02: Falcao Filho, 233 (ed Estoril), 233, ap 111 Bloco Estoril - Campinas/SP</p>
+<a class="change_address_btn">Alterar Endereço</a>
+
+<form>
+	<section class="checkout-title">
+		<div class="checkout-title_left">
+			<mat-icon>my_location</mat-icon>
+			<section class="checkout-title_title">Escolha a Forma de Pagamento</section>
+		</div>
+	</section>
+
+	<mat-radio-group aria-label="Selecione um endereço:">
+		<mat-accordion class="mat_accordion_container">
+			<mat-expansion-panel class="mat_expansion_container">
+				<mat-expansion-panel-header>
+					<mat-radio-button [value]="1" class="container_addresses--middle">
+						<mat-panel-title>
+							<mat-icon class="icon_accordion">credit_card</mat-icon>
+							Cartão de Crédito
+						</mat-panel-title>
+					</mat-radio-button>
+				</mat-expansion-panel-header>
+
+				<mat-form-field>
+					<mat-label>First name</mat-label>
+					<input matInput>
+				</mat-form-field>
+
+				<mat-form-field>
+					<mat-label>Age</mat-label>
+					<input matInput type="number" min="1">
+				</mat-form-field>
+			</mat-expansion-panel>
+
+			<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+				<mat-expansion-panel-header>
+					<mat-radio-button [value]="2" class="container_addresses--middle">
+						<mat-panel-title>
+							<mat-icon class="icon_accordion">note</mat-icon>
+							Boleto Bancário
+						</mat-panel-title>
+					</mat-radio-button>
+				</mat-expansion-panel-header>
+				
+			</mat-expansion-panel>
+		</mat-accordion>
+	</mat-radio-group>
+
+</form>

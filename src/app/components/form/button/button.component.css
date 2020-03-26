@@ -1,0 +1,63 @@
+.btn-login {
+  width: 100%;
+  border-radius: 20px;
+  line-height: 45px;
+  background: #1e6ea2;
+}
+
+/** DataTables Actions **/
+
+.mat-mini-fab.faButton {
+  height: 30px;
+  width: 30px;
+  float: right;
+  line-height: 29px;
+  margin-right: 5px;
+  box-shadow: none;
+}
+
+.mat-mini-fab.faButton mat-icon.mat-icon {
+  float: left;
+  font-size: 21px;
+  color: white;/* 
+  .search {
+    width: 60px;
+    height: 60px;
+    font-size: 15px
+  } */
+  
+  margin-top: -4px;
+}
+
+.mat-mini-fab.faButton i {
+  color: #fff;
+  margin-top: -14px;
+  font-size: 17px;
+}
+
+.mat-mini-fab.faBlue {
+  background-color: #2999f4;
+}
+
+.mat-mini-fab.faYellow {
+  background-color: #f56c23;
+}
+
+.mat-mini-fab.faGreen {
+  background-color: #53b250;
+}
+
+.speed-dial-item {
+  background-color: #E40A5D;
+  color: white;
+}
+
+/** Space icon buttons **/
+
+.space-right-10 {
+  margin-right: 10px;
+}
+
+.space-right-20 {
+  margin-right: 20px;
+}

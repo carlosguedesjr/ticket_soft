@@ -1,0 +1,62 @@
+.list-colors {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.colors {
+    list-style: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 2px;
+    border: 2px solid transparent;
+}
+
+.colors div {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ccc;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.colors div .first-color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.colors div .second-color {
+    width: 50%;
+    height: 30px;
+    position: absolute;
+    border-bottom-right-radius: 90px;
+    border-top-right-radius: 90px;
+    transform: rotate(412deg);
+    margin: 6px 0 0px 12.3px;
+}
+
+.active {
+    border: 2px solid rgb(179, 179, 179);
+}
+
+.colors:hover {
+    cursor: pointer;
+    border: 2px solid #ccc;
+}
+
+::ng-deep .mat-badge-content {
+    background: #25731c;
+}
+
+.container-color_title {
+    margin-bottom: 10px;
+}
+
+.container-size {
+    margin-top: -13px;
+}

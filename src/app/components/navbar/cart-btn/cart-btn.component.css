@@ -1,0 +1,18 @@
+.slide-cart-icon:hover,
+.slide-cart-icon:active{
+    cursor: pointer;
+}
+
+app-shopping-cart {
+    z-index: 5000;
+}
+
+.icons-menu {
+    vertical-align: bottom;
+}
+
+.icons-menu:hover,
+.icons-menu:active {
+    color: #ff6f00;
+    cursor: pointer;
+}
