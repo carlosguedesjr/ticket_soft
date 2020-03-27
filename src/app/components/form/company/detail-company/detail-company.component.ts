@@ -71,7 +71,7 @@ export class DetailCompanyComponent implements OnInit {
     this.companyService.getProfileReceita(event.target.value).then(res => {
       console.log('retorno receita: ', res);
     }).catch(error => {
-      console.log('erro receira: ', error);
+      console.log('erro receita: ', error);
     })
   }
 
